@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
-"""Copy WordPress media from the archive into the Hugo static uploads tree.
+"""Copy WordPress media from the archive into the Hugo static tree.
 
 Inputs:
     wordpress-data/media.tar
     migration/media-inventory.csv
+    migration/media-rewrite-map.csv, optional but preferred
 
 Output:
-    site/static/uploads/YYYY/MM/filename.ext
+    site/static/uploads/<post-slug>/<filename.ext>
 
-This script copies files using their existing WordPress upload-relative paths.
-It does not rename, transform, resize, recompress, delete, or modify source media.
+This script copies files using either reviewed rewrite-map paths or original
+WordPress upload-relative paths as a fallback. It never modifies source media.
 """
 
 from __future__ import annotations
@@ -38,20 +39,16 @@ class MediaRow:
             return ""
         return parsed.path.split(marker, 1)[1].lstrip("/")
 
-    @property
-    def output_relative_path(self) -> str:
-        return self.expected_relative_path
+    def output_site_path(self, rewrite_map: dict[str, str]) -> str:
+        mapped = rewrite_map.get(self.attachment_url, "").strip()
+        if mapped:
+            return mapped.lstrip("/")
+        return f"uploads/{self.expected_relative_path}"
 
 
 def read_media_inventory(input_file: Path) -> list[MediaRow]:
     with input_file.open("r", encoding="utf-8", newline="") as handle:
         reader = csv.DictReader(handle)
-        required_fields = {"post_id", "title", "attachment_url"}
-        missing_fields = required_fields - set(reader.fieldnames or [])
-        if missing_fields:
-            missing = ", ".join(sorted(missing_fields))
-            raise ValueError(f"Missing required fields in media inventory: {missing}")
-
         rows: list[MediaRow] = []
         for row in reader:
             rows.append(
@@ -62,6 +59,21 @@ def read_media_inventory(input_file: Path) -> list[MediaRow]:
                 )
             )
         return rows
+
+
+def read_rewrite_map(input_file: Path) -> dict[str, str]:
+    if not input_file.exists():
+        return {}
+
+    rewrite_map: dict[str, str] = {}
+    with input_file.open("r", encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle)
+        for row in reader:
+            old_url = row.get("old_attachment_url", "").strip()
+            new_path = row.get("new_site_path", "").strip()
+            if old_url and new_path:
+                rewrite_map[old_url] = new_path
+    return rewrite_map
 
 
 def safe_output_path(output_root: Path, relative_path: str) -> Path:
@@ -85,10 +97,9 @@ def safe_output_path(output_root: Path, relative_path: str) -> Path:
 def list_tar_files(archive: tarfile.TarFile) -> dict[str, tarfile.TarInfo]:
     files: dict[str, tarfile.TarInfo] = {}
     for member in archive.getmembers():
-        if not member.isfile():
-            continue
-        normalized = member.name.replace("\\", "/").lstrip("./")
-        files[normalized] = member
+        if member.isfile():
+            normalized = member.name.replace("\\", "/").lstrip("./")
+            files[normalized] = member
     return files
 
 
@@ -126,7 +137,7 @@ def copy_member(archive: tarfile.TarFile, member: tarfile.TarInfo, output_path: 
     return "copied"
 
 
-def write_report(output_file: Path, copied: list[tuple[MediaRow, Path]], skipped_existing: list[tuple[MediaRow, Path]], missing: list[MediaRow]) -> None:
+def write_report(output_file: Path, copied_count: int, skipped_count: int, missing: list[MediaRow], rewrite_map_used: bool) -> None:
     output_file.parent.mkdir(parents=True, exist_ok=True)
 
     with output_file.open("w", encoding="utf-8", newline="\n") as handle:
@@ -135,9 +146,10 @@ def write_report(output_file: Path, copied: list[tuple[MediaRow, Path]], skipped
         handle.write("## Summary\n\n")
         handle.write("| Metric | Count |\n")
         handle.write("|---|---:|\n")
-        handle.write(f"| Copied files | {len(copied)} |\n")
-        handle.write(f"| Skipped existing files | {len(skipped_existing)} |\n")
+        handle.write(f"| Copied files | {copied_count} |\n")
+        handle.write(f"| Skipped existing files | {skipped_count} |\n")
         handle.write(f"| Missing files | {len(missing)} |\n")
+        handle.write(f"| Rewrite map used | {'yes' if rewrite_map_used else 'no'} |\n")
         handle.write("\n")
 
         if missing:
@@ -149,8 +161,10 @@ def write_report(output_file: Path, copied: list[tuple[MediaRow, Path]], skipped
             handle.write("\n")
 
         handle.write("## Notes\n\n")
-        handle.write("Files are copied to `site/static/uploads/` using their original WordPress upload-relative paths.\n\n")
-        handle.write("This script does not rename media. Future readable media names should be handled separately through `migration/media-rewrite-map.csv`.\n")
+        if rewrite_map_used:
+            handle.write("Files were copied using `migration/media-rewrite-map.csv`.\n")
+        else:
+            handle.write("No rewrite map was found. Original WordPress upload-relative paths were used.\n")
 
 
 def escape_table(value: str) -> str:
@@ -160,8 +174,9 @@ def escape_table(value: str) -> str:
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Copy WordPress media archive files into Hugo static uploads")
     parser.add_argument("--inventory", default="migration/media-inventory.csv", help="Path to media inventory CSV")
+    parser.add_argument("--rewrite-map", default="migration/media-rewrite-map.csv", help="Path to media rewrite map CSV")
     parser.add_argument("--archive", default="wordpress-data/media.tar", help="Path to WordPress media tar archive")
-    parser.add_argument("--output-root", default="site/static/uploads", help="Hugo static uploads output directory")
+    parser.add_argument("--output-root", default="site/static", help="Hugo static output root")
     parser.add_argument("--report", default="migration/media-copy-report.md", help="Path to generated copy report")
     parser.add_argument("--overwrite", action="store_true", help="Overwrite files that already exist in the output directory")
     return parser.parse_args(argv)
@@ -170,6 +185,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv or sys.argv[1:])
     inventory_file = Path(args.inventory)
+    rewrite_map_file = Path(args.rewrite_map)
     archive_file = Path(args.archive)
     output_root = Path(args.output_root)
     report_file = Path(args.report)
@@ -183,9 +199,10 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     rows = read_media_inventory(inventory_file)
+    rewrite_map = read_rewrite_map(rewrite_map_file)
 
-    copied: list[tuple[MediaRow, Path]] = []
-    skipped_existing: list[tuple[MediaRow, Path]] = []
+    copied_count = 0
+    skipped_count = 0
     missing: list[MediaRow] = []
 
     output_root.mkdir(parents=True, exist_ok=True)
@@ -199,23 +216,24 @@ def main(argv: list[str] | None = None) -> int:
                 missing.append(row)
                 continue
 
-            output_path = safe_output_path(output_root, row.output_relative_path)
+            output_path = safe_output_path(output_root, row.output_site_path(rewrite_map))
             result = copy_member(archive, member, output_path, overwrite=args.overwrite)
 
             if result == "copied":
-                copied.append((row, output_path))
+                copied_count += 1
             elif result == "skipped_existing":
-                skipped_existing.append((row, output_path))
+                skipped_count += 1
             else:
                 missing.append(row)
 
-    write_report(report_file, copied, skipped_existing, missing)
+    write_report(report_file, copied_count, skipped_count, missing, rewrite_map_used=bool(rewrite_map))
 
     print("Media copy complete")
     print()
     print(f"Inventory rows: {len(rows)}")
-    print(f"Copied files: {len(copied)}")
-    print(f"Skipped existing files: {len(skipped_existing)}")
+    print(f"Rewrite map rows: {len(rewrite_map)}")
+    print(f"Copied files: {copied_count}")
+    print(f"Skipped existing files: {skipped_count}")
     print(f"Missing files: {len(missing)}")
     print(f"Output root: {output_root}")
     print(f"Wrote: {report_file}")
