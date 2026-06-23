@@ -1,0 +1,9 @@
+baseURL = 'https://zemelaar.blog/'
+languageCode = 'nl-nl'
+title = 'Zemelaar'
+theme = 'hugo-bearblog'
+
+enableRobotsTXT = true
+
+[params]
+  description = 'Op het kaf na, de buitenste laag van de graankorrel'
