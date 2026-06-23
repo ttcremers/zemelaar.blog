@@ -5,5 +5,8 @@ theme = 'hugo-bearblog'
 
 enableRobotsTXT = true
 
+[permalinks]
+  blog = '/:slug/'
+
 [params]
   description = 'Op het kaf na, de buitenste laag van de graankorrel'
