@@ -15,17 +15,17 @@ De thermometer op het terras wees 36 graden aan toen we over het erf richting de
 Velmir ging ons voor de stal binnen. Druk was het niet, 5 varkens en 1 koe. Er was nog genoeg ruimte over voor meer koeien. "Toen alle kinderen nog thuis woonde hadden we 20 koeien", ondertussen gaf hij de koe die kauwend op de grond lag een stootje om haar op te laten staan, “dat is nu te veel werk” mompelde hij kijkend naar de koe.
 Ik hing inmiddels over het hekwerk van de varkens die alle vijf met hun natte snuiten aan mijn hand roken en af en toe voorzichtig probeerden of die eetbaar was. 10 sympathieke ogen keken mij nieuwsgierig aan. Alex kwam naast mij staan en aaide een varken over zijn ruwe haren. De boer keek wat verbaasd naar ons enthousiasme, maar glimlachte.
 
-![](/uploads/2022/08/9948c-do01000095.jpg)
+![](/uploads/site/beeld-13.jpg)
 
 Nadat we het varkensspeeksel van onze handen gewassen hadden, namen we weer plaats in de schaduw van de druivenstruiken op het terras.
 Onze buurvrouw, Vesna, had ondertussen verschillende stukjes worst gesneden en plaatste die samen met wat brood op tafel. “De varkens van vorig jaar”, grapte Velmir en schonk wijn in uit een plastic fles waar eerder mineraalwater in gezeten had. We lieten ons de wijn en de worst goed smaken waardoor de gezelligheid met steeds meer intensiteit over het erf galmde.
 
-![](/uploads/2022/08/a0652-do01000101.jpg)
+![](/uploads/site/beeld-17.jpg)
 
 “Dat is de echte baas hier!”, Vesna wees naar een oudere vrouw die in de deuropening van het woongedeelte van de boerderij was verschenen, en lachte. Bijna meteen volgde ook een oudere man; de ouders van Velmir. Beiden namen plaats op een bankje nabij de tafel waar wij aan zaten en luisterden nieuwsgierig mee.
 Vragen werden gesteld, vergelijkingen gemaakt en anekdotes gedeeld. Taal- en cultuurbarrières verdwenen, samen met de wijn uit de zoveelste fles die leeg geschonken werd.
 
-![](/uploads/2022/08/26031-do01000111.jpg)
+![](/uploads/site/beeld-16.jpg)
 
 De zon brandde, mijn wereld draaide en ik dacht steeds beter Kroatisch te beheersen. Wat was die worst toch lekker pittig en het brood zo zacht. Nog maar een slokje om het weg te spoelen en de uitdroging voor te zijn; je moet voldoende drinken met dit warme weer. Meteen werd mijn glas weer bijgevuld, "niet meer drinken", sprak ik mijzelf vermanend toe terwijl het glas alweer aan mijn lippen stond. Gastvrijheid is heilig in dit deel van Europa. Geen glas staat leeg, het mag je gast aan niets ontbreken. Het wordt tot kunst verheven.
 Het gesprek ging ondertussen onverminderd door. Nog even op de foto met de man van Vesna, heel ontspannen kerel. Het wisselen van het krukje ging maar net goed en de foto werd gemaakt. Glimlachend keek ik de tafel rond, het ontbrak mij aan niets.
@@ -35,7 +35,7 @@ Toen, als een donderslag bij heldere hemel, klapte Vesna in haar handen, “zull
 Tijdens de wandeling over het bergweggetje stopte ik regelmatig om mijn enthousiasme over de middag te delen. We raakten achter. Gosia bleef bij mij terwijl ik verder waggelde. Op een piek bleven we even hand in hand staan en keken over de groene vallei van loofbomen en druivenstruiken, luisterend naar de stilte in de brandende zon.
 Rond kwart over 5 ‘s middags waren we weer thuis. Rond de klok van 7 begon mijn kater.
 
-![](/uploads/2022/08/31a4e-do01000072.jpg)
+![](/uploads/site/beeld-14.jpg)
 
 De dag erna brachten Vesna en haar man Zenko ons naar de garage waar de auto, inmiddels gerepareerd, klaar stond. Het was een klein halfuur rijden. Onderweg hadden we het over de gezellige middag van de dag ervoor.
 Twee dagen later, tijdens een etentje bij Vesna, werden we nog een keer uitgenodigd om bij Velmir langs te komen in zijn wijngaard.
@@ -43,4 +43,4 @@ Twee dagen later, tijdens een etentje bij Vesna, werden we nog een keer uitgenod
 Natuurlijk zijn we op de uitnodiging ingegaan. Om weer samen te zijn met mensen die we nauwelijks kennen en moeilijk verstaan, maar desondanks een band mee voelen.
 Vanuit het perspectief van het universum maakt wie we zijn en wat we doen geen verschil; wijn is slechts sap van gefermenteerde druiven! Maar vanuit het perspectief van de mensen rondom de tafel van wijnboer Velmir in Noord-Kroatië was elke tafelgenoot belangrijk voor een middag van verbondenheid en geluk.
 
-![](/uploads/2022/08/987e8-do01000264.jpg)
+![](/uploads/site/beeld-15.jpg)

@@ -5,12 +5,13 @@ Inputs:
     wordpress-data/export.xml
     migration/url-map.csv
     migration/media-inventory.csv
+    migration/media-rewrite-map.csv, optional but preferred
 
 Output:
     site/content/posts/<slug>.md
 
-This is a deliberately conservative first-pass converter.
-It does not rewrite prose, rename slugs, rename media files, deploy, or touch DNS.
+This is a deliberately conservative converter.
+It does not rewrite prose, rename slugs, deploy, or touch DNS.
 It skips WordPress pages such as Home/Blog and all non-post items.
 """
 
@@ -84,11 +85,7 @@ class MediaRow:
 
 
 class BasicHtmlToMarkdown(HTMLParser):
-    """Small HTML-to-Markdown converter for WordPress post bodies.
-
-    This intentionally handles only common WordPress body markup.
-    Unknown tags are ignored, but their text content is preserved.
-    """
+    """Small HTML-to-Markdown converter for WordPress post bodies."""
 
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
@@ -96,7 +93,6 @@ class BasicHtmlToMarkdown(HTMLParser):
         self.link_stack: list[str] = []
         self.list_depth = 0
         self.in_pre = False
-        self.in_code = False
         self.skip_depth = 0
 
     def get_markdown(self) -> str:
@@ -106,17 +102,14 @@ class BasicHtmlToMarkdown(HTMLParser):
         return text.strip() + "\n"
 
     def append(self, value: str) -> None:
-        if self.skip_depth:
-            return
-        self.parts.append(value)
+        if not self.skip_depth:
+            self.parts.append(value)
 
     def ensure_blank_line(self) -> None:
         if self.skip_depth:
             return
         current = "".join(self.parts)
-        if not current:
-            return
-        if current.endswith("\n\n"):
+        if not current or current.endswith("\n\n"):
             return
         if current.endswith("\n"):
             self.parts.append("\n")
@@ -130,18 +123,16 @@ class BasicHtmlToMarkdown(HTMLParser):
         if tag in {"script", "style"}:
             self.skip_depth += 1
             return
-
         if self.skip_depth:
             return
 
         if tag in {"p", "div", "section", "article"}:
             self.ensure_blank_line()
-        elif tag in {"br"}:
+        elif tag == "br":
             self.append("\n")
         elif tag in {"h1", "h2", "h3", "h4", "h5", "h6"}:
-            level = int(tag[1])
             self.ensure_blank_line()
-            self.append("#" * level + " ")
+            self.append("#" * int(tag[1]) + " ")
         elif tag == "blockquote":
             self.ensure_blank_line()
             self.append("> ")
@@ -152,7 +143,6 @@ class BasicHtmlToMarkdown(HTMLParser):
         elif tag == "code":
             if not self.in_pre:
                 self.append("`")
-            self.in_code = True
         elif tag == "pre":
             self.ensure_blank_line()
             self.append("```\n")
@@ -185,15 +175,12 @@ class BasicHtmlToMarkdown(HTMLParser):
         if tag in {"script", "style"}:
             self.skip_depth = max(self.skip_depth - 1, 0)
             return
-
         if self.skip_depth:
             return
 
         if tag in {"p", "div", "section", "article", "figure"}:
             self.ensure_blank_line()
-        elif tag in {"h1", "h2", "h3", "h4", "h5", "h6"}:
-            self.ensure_blank_line()
-        elif tag == "blockquote":
+        elif tag in {"h1", "h2", "h3", "h4", "h5", "h6", "blockquote"}:
             self.ensure_blank_line()
         elif tag in {"strong", "b"}:
             self.append("**")
@@ -202,7 +189,6 @@ class BasicHtmlToMarkdown(HTMLParser):
         elif tag == "code":
             if not self.in_pre:
                 self.append("`")
-            self.in_code = False
         elif tag == "pre":
             self.append("\n```")
             self.ensure_blank_line()
@@ -224,9 +210,8 @@ class BasicHtmlToMarkdown(HTMLParser):
             return
         if self.in_pre:
             self.append(data)
-            return
-        collapsed = re.sub(r"\s+", " ", data)
-        self.append(collapsed)
+        else:
+            self.append(re.sub(r"\s+", " ", data))
 
 
 def escape_markdown(value: str) -> str:
@@ -306,8 +291,9 @@ def read_url_map(input_file: Path) -> dict[str, UrlMapRow]:
     return rows
 
 
-def read_media_map(input_file: Path) -> dict[str, str]:
+def read_media_map(input_file: Path, rewrite_map_file: Path) -> dict[str, str]:
     media_map: dict[str, str] = {}
+
     with input_file.open("r", encoding="utf-8", newline="") as handle:
         reader = csv.DictReader(handle)
         for row in reader:
@@ -317,6 +303,16 @@ def read_media_map(input_file: Path) -> dict[str, str]:
             )
             if media.attachment_url and media.target_path:
                 media_map[media.attachment_url] = media.target_path
+
+    if rewrite_map_file.exists():
+        with rewrite_map_file.open("r", encoding="utf-8", newline="") as handle:
+            reader = csv.DictReader(handle)
+            for row in reader:
+                old_url = row.get("old_attachment_url", "").strip()
+                new_path = row.get("new_site_path", "").strip()
+                if old_url and new_path:
+                    media_map[old_url] = new_path
+
     return media_map
 
 
@@ -340,11 +336,6 @@ def rewrite_internal_links(content: str, url_map: dict[str, UrlMapRow]) -> str:
 
 
 def strip_local_upload_querystrings(markdown: str) -> str:
-    """Remove WordPress image resizing querystrings from local upload links.
-
-    WordPress often writes image URLs like `/uploads/2022/08/photo.jpg?w=1024`.
-    The static Hugo site should point to the actual copied file path instead.
-    """
     return re.sub(r"(\(/uploads/[^)\s?#]+)\?[^)\s]*\)", r"\1)", markdown)
 
 
@@ -389,6 +380,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--input", default="wordpress-data/export.xml", help="Path to WordPress WXR export XML")
     parser.add_argument("--url-map", default="migration/url-map.csv", help="Path to URL map CSV")
     parser.add_argument("--media-inventory", default="migration/media-inventory.csv", help="Path to media inventory CSV")
+    parser.add_argument("--media-rewrite-map", default="migration/media-rewrite-map.csv", help="Path to optional media rewrite map CSV")
     parser.add_argument("--output-dir", default="site/content/posts", help="Output directory for Hugo Markdown posts")
     parser.add_argument("--target-domain", default=DEFAULT_TARGET_DOMAIN, help="Canonical target domain")
     return parser.parse_args(argv)
@@ -399,6 +391,7 @@ def main(argv: list[str] | None = None) -> int:
     export_file = Path(args.input)
     url_map_file = Path(args.url_map)
     media_inventory_file = Path(args.media_inventory)
+    media_rewrite_map_file = Path(args.media_rewrite_map)
     output_dir = Path(args.output_dir)
 
     for required_file in [export_file, url_map_file, media_inventory_file]:
@@ -410,7 +403,7 @@ def main(argv: list[str] | None = None) -> int:
 
     posts = parse_posts(export_file)
     url_map = read_url_map(url_map_file)
-    media_map = read_media_map(media_inventory_file)
+    media_map = read_media_map(media_inventory_file, media_rewrite_map_file)
 
     converted = 0
     skipped_pages = 0
@@ -442,6 +435,7 @@ def main(argv: list[str] | None = None) -> int:
     print(f"Skipped other items: {skipped_other}")
     print(f"Skipped unpublished posts: {skipped_unpublished}")
     print(f"Skipped posts missing URL map: {skipped_missing_url_map}")
+    print(f"Media rewrite map used: {media_rewrite_map_file.exists()}")
     print(f"Wrote posts to: {output_dir}")
 
     return 0 if skipped_missing_url_map == 0 else 2

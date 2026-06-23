@@ -21,7 +21,7 @@ Als kind vond ik kerst magisch: de lichtjes, kaarsjes, kerstverhalen verteld doo
 
 Het was kerst 1986, vlak nadat ik mijn droom van saxofoonspeler had opgegeven en besloot over te gaan op een nieuw instrument dat ik als synthesizer op mijn verlanglijstje had gezet. Dat jaar kwam Europe uit met het nummer The Final Countdown. Ook waren we bij een oudere neef langs geweest die meerdere keyboards had staan. Twee had hij zelfs in een standaard zo trapsgewijs boven elkaar! Ik was verkocht. Mijn instrument had ik gevonden. Alleen nog een beetje lippenstift, lang haar en ik was mijn eigen EuroBonjovi (zie onderstaande foto. Durf te dromen…).
 
-![](/uploads/2025/12/img_3288.jpg)
+![](/uploads/site/screenshot.jpg)
 
 _Durf te dromen_
 
