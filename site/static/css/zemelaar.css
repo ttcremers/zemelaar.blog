@@ -14,12 +14,12 @@ html {
   color: var(--zemelaar-text);
   font-family: "Literata", Georgia, serif;
   font-size: 18px;
-  line-height: 1.65;
+  line-height: 1.68;
   text-rendering: optimizeLegibility;
 }
 
 body {
-  max-width: 36rem;
+  max-width: 32rem;
   margin: 0 auto;
   padding: 2.4rem 1.25rem 4rem;
   background: transparent;
@@ -211,7 +211,7 @@ ul,
 ol,
 blockquote {
   margin-top: 0;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.55rem;
 }
 
 p,
@@ -230,11 +230,22 @@ time {
 }
 
 blockquote {
-  margin-left: 0;
+  max-width: 88%;
+  margin: 2.1rem auto;
   padding-left: 1.1rem;
   border-left: 0.18rem solid var(--zemelaar-green);
   color: #3f372d;
+  font-size: 0.98rem;
   font-style: italic;
+  line-height: 1.62;
+}
+
+blockquote p {
+  margin-bottom: 0.75rem;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
 }
 
 img {
@@ -279,6 +290,7 @@ hr {
   }
 
   body {
+    max-width: 33rem;
     padding: 1.5rem 1rem 3rem;
   }
 
@@ -288,5 +300,9 @@ hr {
 
   .home-title {
     margin-top: 3.5rem;
+  }
+
+  blockquote {
+    max-width: 100%;
   }
 }
