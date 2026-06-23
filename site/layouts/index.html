@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <h1>{{ .Site.Title }}</h1>
+
+  {{ with .Content }}
+    {{ . }}
+  {{ end }}
+
+  {{ $posts := where .Site.RegularPages "Section" "blog" }}
+  {{ if $posts }}
+    <h2>Stukken</h2>
+    <ul>
+      {{ range $posts.ByDate.Reverse }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <small>{{ .Date.Format "02 Jan 2006" }}</small>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+{{ end }}
