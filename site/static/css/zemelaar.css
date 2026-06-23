@@ -154,6 +154,12 @@ a:focus {
   color: var(--zemelaar-green);
 }
 
+strong,
+b {
+  color: var(--zemelaar-text);
+  font-weight: 600;
+}
+
 h1,
 h2,
 h3,
