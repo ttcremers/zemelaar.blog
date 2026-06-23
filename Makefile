@@ -1,4 +1,4 @@
-.PHONY: help pull up down restart logs shell hugo-version build clean convert featured-images media-map media-copy migrate
+.PHONY: help pull up down restart logs shell hugo-version build clean convert featured-images media-map media-copy redirects smoke preview urls migrate
 
 DOCKER_COMPOSE ?= docker compose
 HUGO_SERVICE ?= hugo
@@ -20,7 +20,11 @@ help:
 	@echo "  make featured-images  Add WordPress featured images to converted posts"
 	@echo "  make media-map        Rebuild media rewrite map"
 	@echo "  make media-copy       Copy media into Hugo static directory"
-	@echo "  make migrate          Run media-map, convert, featured-images, and media-copy"
+	@echo "  make redirects        Copy Cloudflare Pages redirects into site/static"
+	@echo "  make smoke            Run migration/site smoke check"
+	@echo "  make preview          Build site and run smoke check"
+	@echo "  make urls             Show useful local test URLs"
+	@echo "  make migrate          Run media-map, convert, featured-images, media-copy, redirects"
 
 pull:
 	$(DOCKER_COMPOSE) pull
@@ -62,4 +66,19 @@ media-map:
 media-copy:
 	python3 tools/copy-media-to-hugo.py --overwrite
 
-migrate: media-map convert featured-images media-copy
+redirects:
+	mkdir -p site/static
+	cp migration/_redirects site/static/_redirects
+
+smoke:
+	python3 tools/smoke-check.py
+
+preview: build smoke
+
+urls:
+	@echo "http://localhost:1313/"
+	@echo "http://localhost:1313/memento-mori/"
+	@echo "http://localhost:1313/sap-van-gefermenteerde-druiven/"
+	@echo "http://localhost:1313/2024/05/29/memento-mori/  (redirect after deploy/build target support)"
+
+migrate: media-map convert featured-images media-copy redirects
