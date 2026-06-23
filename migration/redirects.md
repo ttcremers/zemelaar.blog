@@ -1,0 +1,41 @@
+# Redirect Map
+
+Generated from `migration/url-map.csv`.
+
+These redirects map old date-based WordPress paths to canonical date-free Zemelaar paths.
+
+## Cloudflare Pages redirects
+
+```text
+/2022/07/20/striduleren-dan-wel-tjirpen/ /striduleren-dan-wel-tjirpen/ 301
+/2022/07/20/het-vis-vraagstuk/ /het-vis-vraagstuk/ 301
+/2022/07/22/ook-hier-vallen-ze-van-het-dak/ /ook-hier-vallen-ze-van-het-dak/ 301
+/2022/07/27/de-gouden-vloeistof-van-de-goden/ /de-gouden-vloeistof-van-de-goden/ 301
+/2022/08/08/sap-van-gefermenteerde-druiven/ /sap-van-gefermenteerde-druiven/ 301
+/2022/10/23/stikstofcrises/ /stikstofcrises/ 301
+/2023/08/14/pervers-aspirant-wipkonijn/ /pervers-aspirant-wipkonijn/ 301
+/2024/01/02/zaaien-met-gratis-zaad/ /zaaien-met-gratis-zaad/ 301
+/2024/04/19/profijt/ /profijt/ 301
+/2024/05/21/roze-op-het-strand-roze-in-het-pashokje/ /roze-op-het-strand-roze-in-het-pashokje/ 301
+/2024/05/29/memento-mori/ /memento-mori/ 301
+/2024/06/20/brievenbus-mysteries-en-ongewenste-deposities/ /brievenbus-mysteries-en-ongewenste-deposities/ 301
+/2025/06/11/een-waardeloze-toerist/ /een-waardeloze-toerist/ 301
+/2025/06/27/in-den-beginnen-was-er-anus/ /in-den-beginnen-was-er-anus/ 301
+/2025/06/28/zijn-ouwe-zemelaars-eigenwijs/ /zijn-ouwe-zemelaars-eigenwijs/ 301
+/2025/11/28/klets-kronieken/ /klets-kronieken/ 301
+/2025/12/06/de-schimmel-van-sinterklaas/ /de-schimmel-van-sinterklaas/ 301
+/2025/12/30/oorkerst/ /oorkerst/ 301
+```
+
+## Manual review
+
+These rows were not emitted as redirects because they are structural WordPress pages or otherwise marked for review.
+
+| Title | Old path | New path | Note |
+|---|---|---|---|
+| Home | `/home/` | `/` | manual_review: WordPress structural page |
+| Blog | `/` | `/` | manual_review: WordPress structural page |
+
+## WordPress.com subdomain note
+
+Redirects from `zemelaarblog.wordpress.com` cannot be fully controlled from Cloudflare Pages. They depend on WordPress.com redirect/domain options. The redirects generated here are for paths served by `zemelaar.blog`.
