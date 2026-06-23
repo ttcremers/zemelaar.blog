@@ -10,3 +10,13 @@ enableRobotsTXT = true
 
 [params]
   description = 'Op het kaf na, de buitenste laag van de graankorrel'
+
+[[menu.main]]
+  name = 'Stukken'
+  url = '/'
+  weight = 10
+
+[[menu.main]]
+  name = 'Over'
+  url = '/over/'
+  weight = 20
