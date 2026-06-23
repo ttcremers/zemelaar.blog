@@ -24,7 +24,6 @@ import sys
 from dataclasses import dataclass
 from html.parser import HTMLParser
 from pathlib import Path
-from typing import Iterable
 from urllib.parse import urlparse
 import xml.etree.ElementTree as ET
 
@@ -340,6 +339,15 @@ def rewrite_internal_links(content: str, url_map: dict[str, UrlMapRow]) -> str:
     return rewritten
 
 
+def strip_local_upload_querystrings(markdown: str) -> str:
+    """Remove WordPress image resizing querystrings from local upload links.
+
+    WordPress often writes image URLs like `/uploads/2022/08/photo.jpg?w=1024`.
+    The static Hugo site should point to the actual copied file path instead.
+    """
+    return re.sub(r"(\(/uploads/[^)\s?#]+)\?[^)\s]*\)", r"\1)", markdown)
+
+
 def html_to_markdown(content_html: str) -> str:
     parser = BasicHtmlToMarkdown()
     parser.feed(content_html)
@@ -370,6 +378,7 @@ def write_post(post: WpPost, url_row: UrlMapRow, media_map: dict[str, str], url_
     rewritten_html = rewrite_media_urls(post.content_html, media_map)
     rewritten_html = rewrite_internal_links(rewritten_html, url_map)
     markdown = html_to_markdown(rewritten_html)
+    markdown = strip_local_upload_querystrings(markdown)
 
     output_file = output_dir / f"{post.slug}.md"
     output_file.write_text(frontmatter(post, url_row, target_domain) + markdown, encoding="utf-8")
