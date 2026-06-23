@@ -1,7 +1,6 @@
 wordpress-data/*
 !wordpress-data/.gitkeep
 
-migration/*.csv
 migration/*.log
 
 site/public/
