@@ -1,11 +1,12 @@
 :root {
-  --zemelaar-bg: #f7efe1;
+  --zemelaar-bg: #f1ebdc;
   --zemelaar-paper: #fff8ec;
-  --zemelaar-text: #241f18;
+  --zemelaar-text: #1e1b16;
   --zemelaar-muted: #6f6659;
-  --zemelaar-green: #4f9f24;
-  --zemelaar-green-dark: #347018;
-  --zemelaar-rule: #dfd0b8;
+  --zemelaar-green: #78c52f;
+  --zemelaar-green-dark: #4f8f1f;
+  --zemelaar-gold: #b98a43;
+  --zemelaar-rule: #ddd2bd;
   --zemelaar-selection: #dff5cf;
 }
 
@@ -37,7 +38,7 @@ footer {
 }
 
 header {
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
 footer {
@@ -46,19 +47,111 @@ footer {
   border-top: 1px solid var(--zemelaar-rule);
 }
 
+.site-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.site-logo {
+  display: inline-block;
+  line-height: 0;
+}
+
+.site-logo img {
+  width: 4.75rem;
+  height: auto;
+  margin: 0;
+}
+
+.site-menu {
+  position: relative;
+  z-index: 5;
+}
+
+.site-menu summary {
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 999px;
+  background: rgba(30, 27, 22, 0.06);
+  cursor: pointer;
+  list-style: none;
+}
+
+.site-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.menu-lines,
+.menu-lines::before,
+.menu-lines::after {
+  display: block;
+  width: 1.35rem;
+  height: 0.09rem;
+  background: var(--zemelaar-text);
+  content: "";
+}
+
+.menu-lines {
+  position: relative;
+}
+
+.menu-lines::before,
+.menu-lines::after {
+  position: absolute;
+  left: 0;
+}
+
+.menu-lines::before {
+  top: -0.45rem;
+}
+
+.menu-lines::after {
+  top: 0.45rem;
+}
+
+.site-menu nav {
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  min-width: 11rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--zemelaar-rule);
+  background: var(--zemelaar-paper);
+  box-shadow: 0 1rem 2rem rgba(30, 27, 22, 0.08);
+}
+
+.site-menu nav a {
+  display: block;
+  padding: 0.35rem 0;
+  color: var(--zemelaar-text);
+  text-decoration: none;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.site-menu nav a:hover,
+.site-menu nav a:focus {
+  color: var(--zemelaar-green-dark);
+}
+
 main {
   max-width: 100%;
 }
 
 a {
-  color: var(--zemelaar-green);
+  color: var(--zemelaar-green-dark);
   text-decoration-thickness: 0.07em;
   text-underline-offset: 0.18em;
 }
 
 a:hover,
 a:focus {
-  color: var(--zemelaar-green-dark);
+  color: var(--zemelaar-green);
 }
 
 h1,
@@ -66,20 +159,45 @@ h2,
 h3,
 h4 {
   color: var(--zemelaar-text);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
 }
 
 h1 {
-  margin: 0 0 1.4rem;
-  font-size: clamp(2.35rem, 6vw, 4.15rem);
+  margin: 0 0 1.5rem;
+  font-size: clamp(2.7rem, 7vw, 5.4rem);
+}
+
+h1 em,
+.home-title em {
+  color: var(--zemelaar-gold);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.home-title {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+
+.home-title span {
+  display: block;
+}
+
+.home-kicker {
+  margin-bottom: 1.4rem;
+  color: var(--zemelaar-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
 }
 
 h2 {
   margin-top: 3rem;
   margin-bottom: 1rem;
-  font-size: 1.55rem;
+  font-size: 1.65rem;
 }
 
 h3 {
@@ -120,15 +238,6 @@ img {
   margin: 2rem auto;
 }
 
-main > p:first-of-type img[alt="Zemelaar logo"] {
-  max-width: 9rem;
-  margin: 0 0 2rem;
-}
-
-main > p:first-of-type:has(img[alt="Zemelaar logo"]) {
-  margin-bottom: 0;
-}
-
 article img,
 main > p img:not([alt="Zemelaar logo"]) {
   border-radius: 0.15rem;
@@ -167,6 +276,10 @@ hr {
   }
 
   header {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .home-title {
+    margin-top: 3.5rem;
   }
 }
