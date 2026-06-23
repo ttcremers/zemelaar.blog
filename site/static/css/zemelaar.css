@@ -1,0 +1,172 @@
+:root {
+  --zemelaar-bg: #fbf4e8;
+  --zemelaar-paper: #fffaf1;
+  --zemelaar-text: #241f18;
+  --zemelaar-muted: #6f6659;
+  --zemelaar-green: #12643f;
+  --zemelaar-green-dark: #0d4f31;
+  --zemelaar-rule: #e5d8c4;
+  --zemelaar-selection: #d9eadf;
+}
+
+html {
+  background: var(--zemelaar-bg);
+  color: var(--zemelaar-text);
+  font-family: "Literata", Georgia, serif;
+  font-size: 20px;
+  line-height: 1.72;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2.4rem 1.25rem 4rem;
+  background: transparent;
+  color: var(--zemelaar-text);
+}
+
+::selection {
+  background: var(--zemelaar-selection);
+}
+
+header,
+footer {
+  color: var(--zemelaar-muted);
+  font-size: 0.85rem;
+}
+
+header {
+  margin-bottom: 3rem;
+}
+
+footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--zemelaar-rule);
+}
+
+main {
+  max-width: 100%;
+}
+
+a {
+  color: var(--zemelaar-green);
+  text-decoration-thickness: 0.07em;
+  text-underline-offset: 0.18em;
+}
+
+a:hover,
+a:focus {
+  color: var(--zemelaar-green-dark);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--zemelaar-text);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+h1 {
+  margin: 0 0 1.4rem;
+  font-size: clamp(2.35rem, 6vw, 4.15rem);
+}
+
+h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-size: 1.55rem;
+}
+
+h3 {
+  margin-top: 2.2rem;
+  font-size: 1.25rem;
+}
+
+p,
+ul,
+ol,
+blockquote {
+  margin-top: 0;
+  margin-bottom: 1.35rem;
+}
+
+li + li {
+  margin-top: 0.35rem;
+}
+
+small,
+time {
+  color: var(--zemelaar-muted);
+  font-size: 0.78rem;
+}
+
+blockquote {
+  margin-left: 0;
+  padding-left: 1.1rem;
+  border-left: 0.18rem solid var(--zemelaar-green);
+  color: #3f372d;
+  font-style: italic;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 2rem auto;
+}
+
+main > p:first-of-type img[alt="Zemelaar logo"] {
+  max-width: 9rem;
+  margin: 0 0 2rem;
+}
+
+main > p:first-of-type:has(img[alt="Zemelaar logo"]) {
+  margin-bottom: 0;
+}
+
+article img,
+main > p img:not([alt="Zemelaar logo"]) {
+  border-radius: 0.15rem;
+}
+
+ul {
+  padding-left: 1.25rem;
+}
+
+pre,
+code {
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 0.85em;
+}
+
+pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border: 1px solid var(--zemelaar-rule);
+  background: var(--zemelaar-paper);
+}
+
+hr {
+  margin: 2.5rem 0;
+  border: 0;
+  border-top: 1px solid var(--zemelaar-rule);
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 18px;
+  }
+
+  body {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  header {
+    margin-bottom: 2rem;
+  }
+}
