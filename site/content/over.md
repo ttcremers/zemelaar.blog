@@ -13,5 +13,6 @@ Ik schrijf omdat sommige dingen pas bestaan wanneer ze zijn opgeschreven.
 
 Naast Zemelaar maak ik fotografie en ander werk op:
 
+- [artistiekportret.nl](https://artistiekportret.nl/)
 - [thomascremers.nl](https://thomascremers.nl/)
 - [zone.photos](https://zone.photos/)
