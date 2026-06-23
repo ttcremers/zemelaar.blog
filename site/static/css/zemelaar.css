@@ -5,7 +5,6 @@
   --zemelaar-muted: #6f6659;
   --zemelaar-green: #78c52f;
   --zemelaar-green-dark: #4f8f1f;
-  --zemelaar-gold: #b98a43;
   --zemelaar-rule: #ddd2bd;
   --zemelaar-selection: #dff5cf;
 }
@@ -14,17 +13,18 @@ html {
   background: var(--zemelaar-bg);
   color: var(--zemelaar-text);
   font-family: "Literata", Georgia, serif;
-  font-size: 20px;
-  line-height: 1.58;
+  font-size: 18px;
+  line-height: 1.65;
   text-rendering: optimizeLegibility;
 }
 
 body {
-  max-width: 38rem;
+  max-width: 36rem;
   margin: 0 auto;
   padding: 2.4rem 1.25rem 4rem;
   background: transparent;
   color: var(--zemelaar-text);
+  font-weight: 400;
 }
 
 ::selection {
@@ -38,7 +38,7 @@ footer {
 }
 
 header {
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
 }
 
 footer {
@@ -159,25 +159,26 @@ h2,
 h3,
 h4 {
   color: var(--zemelaar-text);
+  font-family: "Literata", Georgia, serif;
   font-weight: 500;
-  letter-spacing: -0.025em;
-  line-height: 1.12;
+  letter-spacing: -0.018em;
+  line-height: 1.16;
 }
 
 h1 {
-  margin: 0 0 1.5rem;
-  font-size: clamp(2.7rem, 7vw, 5.4rem);
+  margin: 0 0 1.4rem;
+  font-size: clamp(2.15rem, 5vw, 3.5rem);
 }
 
 h1 em,
 .home-title em {
-  color: var(--zemelaar-gold);
+  color: var(--zemelaar-green-dark);
   font-style: italic;
   font-weight: 500;
 }
 
 .home-title {
-  margin-top: 5rem;
+  margin-top: 4rem;
   margin-bottom: 2rem;
 }
 
@@ -190,19 +191,19 @@ h1 em,
   color: var(--zemelaar-muted);
   font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
 }
 
 h2 {
   margin-top: 3rem;
   margin-bottom: 1rem;
-  font-size: 1.65rem;
+  font-size: 1.45rem;
 }
 
 h3 {
   margin-top: 2.2rem;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
 p,
@@ -211,6 +212,11 @@ ol,
 blockquote {
   margin-top: 0;
   margin-bottom: 1.25rem;
+}
+
+p,
+li {
+  font-weight: 400;
 }
 
 li + li {
@@ -268,7 +274,8 @@ hr {
 
 @media (max-width: 720px) {
   html {
-    font-size: 18px;
+    font-size: 17px;
+    line-height: 1.68;
   }
 
   body {
