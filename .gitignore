@@ -1,0 +1,9 @@
+wordpress-data/*
+!wordpress-data/.gitkeep
+
+migration/*.csv
+migration/*.log
+
+site/public/
+site/resources/
+.DS_Store
