@@ -75,6 +75,7 @@ zemelaar.blog/
 ├── migration/
 │   ├── posts-inventory.csv
 │   ├── media-inventory.csv
+│   ├── media-rewrite-map.csv
 │   ├── url-map.csv
 │   ├── redirects.md
 │   └── migration-notes.md
@@ -376,13 +377,16 @@ draft: false
 canonical: "https://zemelaar.blog/post-slug/"
 categories: []
 tags: []
-source_url: "https://zemelaarblog.wordpress.com/..."
 ---
 ```
 
 Dates should be preserved from WordPress.
 
 The date may be shown on article pages, but should not dominate the design.
+
+Old WordPress source URLs belong in migration mapping files, not in final Hugo frontmatter, unless temporarily needed for debugging and explicitly reviewed.
+
+Final public Hugo frontmatter should not contain references to `zemelaarblog.wordpress.com`.
 
 ## Pages
 
@@ -430,6 +434,51 @@ site/content/posts/post-slug/images/filename.ext
 ```
 
 Do not choose the final media strategy before inspecting actual usage.
+
+### Media renaming policy
+
+Media files may be renamed during Hugo export for readability, context, and long-term maintainability.
+
+This is especially useful for files with opaque WordPress/import names, UUIDs, hashes, cropped variants, or phone-camera filenames.
+
+Original exported media files must never be renamed, modified, deleted, or normalized.
+
+Renaming means copying a source file into the Hugo site under a reviewed, cleaner destination name.
+
+The migration must preserve a mapping from original WordPress attachment URLs to new local Hugo asset paths.
+
+Use an explicit rewrite map before copying or renaming media:
+
+```text
+migration/media-rewrite-map.csv
+```
+
+Suggested columns:
+
+```csv
+old_attachment_url,old_local_path,new_site_path,post_slug,title,review_note
+```
+
+The rewrite map should be reviewed before use.
+
+Do not automatically invent “creative” or SEO-heavy filenames.
+
+Preferred naming style:
+
+* plain lowercase filenames
+* ASCII-safe where practical
+* descriptive enough to understand later
+* based on the post slug or visible context
+* no keyword stuffing
+* no decorative naming
+
+Example:
+
+```text
+/uploads/2025/06/zijn-ouwe-zemelaars-eigenwijs-portret.png
+```
+
+The goal is practical clarity, not SEO theater.
 
 ## Development workflow
 
@@ -509,4 +558,3 @@ Definition of done:
 * no source files were modified
 
 Only after this milestone should the Hugo conversion begin.
-
