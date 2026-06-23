@@ -1,12 +1,12 @@
 :root {
-  --zemelaar-bg: #fbf4e8;
-  --zemelaar-paper: #fffaf1;
+  --zemelaar-bg: #f7efe1;
+  --zemelaar-paper: #fff8ec;
   --zemelaar-text: #241f18;
   --zemelaar-muted: #6f6659;
-  --zemelaar-green: #12643f;
-  --zemelaar-green-dark: #0d4f31;
-  --zemelaar-rule: #e5d8c4;
-  --zemelaar-selection: #d9eadf;
+  --zemelaar-green: #4f9f24;
+  --zemelaar-green-dark: #347018;
+  --zemelaar-rule: #dfd0b8;
+  --zemelaar-selection: #dff5cf;
 }
 
 html {
