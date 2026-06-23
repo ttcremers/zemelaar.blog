@@ -1,0 +1,16 @@
+<div class="site-header">
+  <details class="site-menu">
+    <summary aria-label="Menu">
+      <span class="menu-lines" aria-hidden="true"></span>
+    </summary>
+    <nav aria-label="Hoofdnavigatie">
+      {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}">{{ .Name }}</a>
+      {{ end }}
+    </nav>
+  </details>
+
+  <a href="{{ "" | relURL }}" class="site-logo" aria-label="Zemelaar home">
+    <img src="/uploads/site/zemelaar-logo-new-1024.png" alt="Zemelaar">
+  </a>
+</div>
