@@ -18,9 +18,13 @@ Sinds die ervaring ben ik daar, onbewust, altijd naar op zoek geweest wanneer ik
 
 Afgeschreven als toerist dus. Maar ook als reiziger?
 
-“De toerist ziet wat hij graag wilde zien, de reiziger ziet wat hij ziet,” schreef G.K. Chesterton – overigens in een tijd waarin toerisme nog lang niet voor iedereen was weggelegd.
+> De toerist ziet wat hij graag wilde zien, de reiziger ziet wat hij ziet.
+>
+> — G.K. Chesterton
 
-“Toeristen weten niet waar ze zijn geweest; reizigers weten niet waar ze naartoe gaan,” schreef Paul Theroux.
+> Toeristen weten niet waar ze zijn geweest; reizigers weten niet waar ze naartoe gaan.
+>
+> — Paul Theroux
 
 Toerisme is een bucketlist of een tijdelijke ontsnapping. Een foto van een plek die je nauwelijks hebt bekeken. Een all-in vakantie aan de rand van het zwembad.
 
