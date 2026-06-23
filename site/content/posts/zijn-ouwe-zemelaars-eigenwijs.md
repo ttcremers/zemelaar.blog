@@ -23,7 +23,7 @@ In de psychologie bestaat het fenomeen proportionele tijdsperceptie — al in de
 📊 Zie de grafiek:
 
 ![“Zijn oudere mensen (eigen)wijs?”
-(1 jaar als percentage van je leven — hoe ouder je bent, hoe sneller het voelt)](/uploads/site/unnamed.jpg)
+(1 jaar als percentage van je leven — hoe ouder je bent, hoe sneller het voelt)](/uploads/zijn-ouwe-zemelaars-eigenwijs/zijn-ouwe-zemelaars-eigenwijs-beeld-01.jpg)
 
 *(1 jaar als percentage van je leven — hoe ouder je bent, hoe sneller het voelt)*
 

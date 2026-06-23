@@ -13,7 +13,7 @@ Hier in Noord-Kroatië vallen deze zomer, net als in andere Europese landen, ook
 
 Een ander dier waar Gosia (mijn vrouw) en ik op vakantie mee kennis hebben gemaakt is de Europese Hoornaar. We schrokken ons wild, ineens hadden we ‘s avonds deze ongelofelijke klootzak met vleugels in huis; het was alsof er een opgevoerde Solex over ons plafond heen croste.
 
-![](/uploads/site/img-0113.jpg)
+![](/uploads/ook-hier-vallen-ze-van-het-dak/ook-hier-vallen-ze-van-het-dak-beeld-02.jpg)
 
 _De Hoornaar_
 

@@ -26,7 +26,7 @@ We haasten ons een brug over; nu kan het niet ver meer zijn!
 
 Voor ons vertrek zeiden we nog tegen onze 11-jarige zoon dat hij zich niet te veel op zwemmen moest verheugen, want anders is de teleurstelling zo groot als het niet kan. Ondanks die waarschuwing stonden we toch alle drie beteuterd aan de oever. Het meer was er maar het water niet… Een meer zonder water is eigenlijk niets meer.
 
-![](/uploads/site/img-0111.jpg)
+![](/uploads/het-vis-vraagstuk/het-vis-vraagstuk-beeld-02.jpg)
 
 _Trakoscan zonder meer_
 

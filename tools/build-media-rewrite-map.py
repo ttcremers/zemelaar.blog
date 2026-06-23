@@ -3,14 +3,18 @@
 
 Inputs:
     migration/media-inventory.csv
-    migration/url-map.csv
+    wordpress-data/export.xml
 
 Output:
     migration/media-rewrite-map.csv
 
-The generated names are context-based, not visually inspected.
-They use the parent post slug when available, plus a cleaned attachment title
-when that title is useful. Opaque filenames fall back to numbered image names.
+The generated paths are date-free and grouped by parent post slug when possible:
+
+    /uploads/<post-slug>/<image-name>.jpg
+
+The generated names are context-based. They use the parent post slug plus a
+cleaned attachment title when useful. Opaque camera/hash names fall back to
+numbered image names.
 """
 
 from __future__ import annotations
@@ -19,10 +23,16 @@ import argparse
 import csv
 import re
 import sys
+import xml.etree.ElementTree as ET
 from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from urllib.parse import urlparse
+
+
+NS = {
+    "wp": "http://wordpress.org/export/1.2/",
+}
 
 
 @dataclass(frozen=True)
@@ -48,12 +58,43 @@ class MediaRow:
 
 
 @dataclass(frozen=True)
-class UrlMapRow:
+class PostRow:
     post_id: str
     title: str
     slug: str
     post_type: str
     status: str
+
+
+def element_text(element: ET.Element | None) -> str:
+    if element is None or element.text is None:
+        return ""
+    return element.text.strip()
+
+
+def child_text(item: ET.Element, path: str) -> str:
+    return element_text(item.find(path, NS))
+
+
+def read_parent_posts_from_export(input_file: Path) -> dict[str, PostRow]:
+    tree = ET.parse(input_file)
+    channel = tree.getroot().find("channel")
+    if channel is None:
+        raise ValueError("Could not find <channel> in WordPress export")
+
+    posts: dict[str, PostRow] = {}
+    for item in channel.findall("item"):
+        post_id = child_text(item, "wp:post_id")
+        if not post_id:
+            continue
+        posts[post_id] = PostRow(
+            post_id=post_id,
+            title=element_text(item.find("title")),
+            slug=child_text(item, "wp:post_name"),
+            post_type=child_text(item, "wp:post_type"),
+            status=child_text(item, "wp:status"),
+        )
+    return posts
 
 
 def read_media_inventory(input_file: Path) -> list[MediaRow]:
@@ -71,24 +112,6 @@ def read_media_inventory(input_file: Path) -> list[MediaRow]:
                 )
             )
         return rows
-
-
-def read_url_map(input_file: Path) -> dict[str, UrlMapRow]:
-    rows: dict[str, UrlMapRow] = {}
-    with input_file.open("r", encoding="utf-8", newline="") as handle:
-        reader = csv.DictReader(handle)
-        for row in reader:
-            post_id = row.get("post_id", "").strip()
-            if not post_id:
-                continue
-            rows[post_id] = UrlMapRow(
-                post_id=post_id,
-                title=row.get("title", "").strip(),
-                slug=row.get("slug", "").strip(),
-                post_type=row.get("post_type", "").strip(),
-                status=row.get("status", "").strip(),
-            )
-    return rows
 
 
 def slugify(value: str) -> str:
@@ -131,7 +154,6 @@ def is_opaque_name(value: str) -> bool:
     if not clean:
         return True
 
-    # Camera names, hashes, UUID-ish names, and WordPress crop names are not useful long-term names.
     if re.fullmatch(r"[a-f0-9]{4,}-.+", clean):
         return True
     if re.fullmatch(r"[a-f0-9-]{12,}", clean):
@@ -140,9 +162,13 @@ def is_opaque_name(value: str) -> bool:
         return True
     if re.fullmatch(r"do\d+", clean):
         return True
+    if re.fullmatch(r"img[-_]?\d+", clean):
+        return True
+    if re.fullmatch(r"img[-_]\d{8}[-_]\d+", clean):
+        return True
     if clean.startswith("cropped-"):
         return True
-    if clean in {"image", "photo", "img", "untitled", "kopie"}:
+    if clean in {"image", "photo", "img", "untitled", "kopie", "unnamed", "screenshot"}:
         return True
 
     return False
@@ -164,8 +190,9 @@ def unique_path(candidate: str, used: set[str]) -> str:
         used.add(candidate)
         return candidate
 
-    stem = Path(candidate).with_suffix("").as_posix()
-    suffix = Path(candidate).suffix
+    path = Path(candidate)
+    stem = path.with_suffix("").as_posix()
+    suffix = path.suffix
     counter = 2
     while True:
         next_candidate = f"{stem}-{counter}{suffix}"
@@ -175,13 +202,13 @@ def unique_path(candidate: str, used: set[str]) -> str:
         counter += 1
 
 
-def build_rewrite_rows(media_rows: list[MediaRow], url_rows_by_id: dict[str, UrlMapRow]) -> list[dict[str, str]]:
+def build_rewrite_rows(media_rows: list[MediaRow], posts_by_id: dict[str, PostRow]) -> list[dict[str, str]]:
     counters: dict[str, int] = defaultdict(int)
     used_paths: set[str] = set()
     output_rows: list[dict[str, str]] = []
 
     for row in media_rows:
-        parent = url_rows_by_id.get(row.parent_id)
+        parent = posts_by_id.get(row.parent_id)
         extension = row.extension or ".jpg"
 
         if parent and parent.post_type == "post" and parent.slug:
@@ -243,7 +270,7 @@ def write_csv(output_file: Path, rows: list[dict[str, str]]) -> None:
 def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate media rewrite map for date-free Hugo media paths")
     parser.add_argument("--media-inventory", default="migration/media-inventory.csv", help="Path to media inventory CSV")
-    parser.add_argument("--url-map", default="migration/url-map.csv", help="Path to URL map CSV")
+    parser.add_argument("--wordpress-export", default="wordpress-data/export.xml", help="Path to WordPress WXR export XML")
     parser.add_argument("--output", default="migration/media-rewrite-map.csv", help="Path to generated media rewrite map")
     return parser.parse_args(argv)
 
@@ -251,25 +278,27 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv or sys.argv[1:])
     media_inventory_file = Path(args.media_inventory)
-    url_map_file = Path(args.url_map)
+    wordpress_export_file = Path(args.wordpress_export)
     output_file = Path(args.output)
 
-    for required_file in [media_inventory_file, url_map_file]:
+    for required_file in [media_inventory_file, wordpress_export_file]:
         if not required_file.exists():
             print(f"Error: required file not found: {required_file}", file=sys.stderr)
             return 1
 
     media_rows = read_media_inventory(media_inventory_file)
-    url_rows_by_id = read_url_map(url_map_file)
-    rewrite_rows = build_rewrite_rows(media_rows, url_rows_by_id)
+    posts_by_id = read_parent_posts_from_export(wordpress_export_file)
+    rewrite_rows = build_rewrite_rows(media_rows, posts_by_id)
     write_csv(output_file, rewrite_rows)
 
     manual_review = sum(1 for row in rewrite_rows if row["review_note"].startswith("manual_review"))
+    post_grouped = len(rewrite_rows) - manual_review
 
     print("Media rewrite map complete")
     print()
     print(f"Media rows: {len(media_rows)}")
     print(f"Rewrite rows: {len(rewrite_rows)}")
+    print(f"Post-grouped rows: {post_grouped}")
     print(f"Manual review rows: {manual_review}")
     print(f"Wrote: {output_file}")
 
