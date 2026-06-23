@@ -15,12 +15,12 @@ html {
   color: var(--zemelaar-text);
   font-family: "Literata", Georgia, serif;
   font-size: 20px;
-  line-height: 1.72;
+  line-height: 1.58;
   text-rendering: optimizeLegibility;
 }
 
 body {
-  max-width: 42rem;
+  max-width: 38rem;
   margin: 0 auto;
   padding: 2.4rem 1.25rem 4rem;
   background: transparent;
@@ -161,7 +161,7 @@ h4 {
   color: var(--zemelaar-text);
   font-weight: 500;
   letter-spacing: -0.025em;
-  line-height: 1.08;
+  line-height: 1.12;
 }
 
 h1 {
@@ -210,7 +210,7 @@ ul,
 ol,
 blockquote {
   margin-top: 0;
-  margin-bottom: 1.35rem;
+  margin-bottom: 1.25rem;
 }
 
 li + li {
