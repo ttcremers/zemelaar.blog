@@ -7,6 +7,9 @@ canonical: "https://zemelaar.blog/stikstofcrises/"
 categories: ["Geen categorie"]
 tags: []
 ---
+
+![Stikstofcrises](/uploads/stikstofcrises/stikstofcrises-beeld-01.jpg)
+
 Heb jij dat ook? Dat je plots wat ontglipt. Flatulentie kan aanleiding zijn tot het vermijden van contacten en zelfs sociaal isolement. Dat las ik ergens. Het publiceren van dit verhaal is dus niet geheel zonder risico.
 
 Vanochtend ontsnapte mij namelijk een wolkje, het vond zijn weg via de olfactory naar mijn amygdala. Geschrokken knipperde ik een paar keer met mijn ogen en daar stond ik… Een vakantie lang geleden, het Limburgse heuvellandschap; in de verte loeit een koe en het ronken van een tractor komt gierend dichterbij. Met lange zorgeloze stappen - zoals alleen een vakantieganger die neemt - wandelde ik de heuvel af. Plots glijdt de slipper aan mijn rechtervoet smeuïg weg. Ik maak een zwaai en kom wijdbeens tot stilstand. Gadver! Modder, dacht ik nog even.

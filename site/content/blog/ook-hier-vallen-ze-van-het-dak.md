@@ -7,6 +7,9 @@ canonical: "https://zemelaar.blog/ook-hier-vallen-ze-van-het-dak/"
 categories: ["Uncategorized"]
 tags: []
 ---
+
+![Ook hier vallen ze van het dak](/uploads/ook-hier-vallen-ze-van-het-dak/ook-hier-vallen-ze-van-het-dak-beeld-01.jpg)
+
 “De mussen vallen van het dak”, betekent dat het ontzettend warm weer is. Vroeger was de uitdrukking dat ze op diezelfde plek gaapte, maar daar zijn ze blijkbaar vanaf gestapt. [Niemand weet waarom](https://onzetaal.nl/schatkamer/lezen/uitdrukkingen/mussen-vallen-van-het-dak).
 
 Hier in Noord-Kroatië vallen deze zomer, net als in andere Europese landen, ook de mussen van het dak. Hier en daar wipt er een vrolijk rond door het gras maar op de daken zie je ze niet.

@@ -7,6 +7,9 @@ canonical: "https://zemelaar.blog/het-vis-vraagstuk/"
 categories: ["Uncategorized"]
 tags: []
 ---
+
+![Het vis vraagstuk](/uploads/het-vis-vraagstuk/het-vis-vraagstuk-beeld-01.png)
+
 Op vakantie maak je uitstapjes. Meestal zie ik daar een beetje tegenop, maar als ik er dan eenmaal ben! Dan wil ik over het algemeen ook meteen weer weg.
 
 Vissen maken ook uitstapjes, en die willen dan eigenlijk ook meteen weer weg. Voor vissen gebruiken ze een [electrovisapparaat](https://kooivis.nl/portfolio/electrovissen/) om ze te overtuigen. Ik ben netjes getraind, dus ik hoef niet overtuigd te worden.

@@ -7,6 +7,9 @@ canonical: "https://zemelaar.blog/pervers-aspirant-wipkonijn/"
 categories: ["Geen categorie"]
 tags: ["blauwe ogen", "blond haar", "erfelijkheid", "genetica", "groene ogen", "humor", "menselijke diversiteit", "menselijke evolutie", "oogkleur"]
 ---
+
+![Pervers aspirant wipkonijn](/uploads/pervers-aspirant-wipkonijn/pervers-aspirant-wipkonijn-beeld-01.jpg)
+
 Ik heb lichtgrijsgroene ogen, maar naarmate ik ouder word, worden ze donkerder en bloeddoorlopen. De groene oogkleur wordt als bijzonder beschouwd, slechts 2% van de wereldbevolking heeft groene ogen. Het is fijn bijzonder te zijn. Toch ben ik bereid die bijzonderheid door te geven aan de volgende generatie, zie het reactieformulier onder deze post (snelle levering, voorwaarden van toepassing).
 Ik lijk trouwens ook geprogrammeerd te zijn voor de aanleg van "dijk bescherming" zowel bij mijn onder- en bovenooglid. Daarbij begint er op de vreemdste plekken op en rond die "dijken" haar te groeien; van het eigenwijs lange soort. We kunnen het eventueel "helmgras" noemen in deze context. Mijn haar is een deel donkerbruin, en over het andere deel wil ik het niet hebben.
 

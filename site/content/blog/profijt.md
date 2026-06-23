@@ -7,6 +7,9 @@ canonical: "https://zemelaar.blog/profijt/"
 categories: ["Geen categorie"]
 tags: []
 ---
+
+![Gunstig effect](/uploads/profijt/profijt-image-wa7-9fmo-1711292405167-raw.jpg)
+
 Profijt is een interieurwinkel, die naam is goed bedacht want profijt betekent “gunstig effect,” maar het klinkt ook als tapijt en daar staan je meubels vaak op... Bovendien kan je ook tapijt kopen bij Profijt. Het effect is alleen niet gunstig. Er lopen verkopers rond die hun verkoop training te serieus genomen hebben en verontwaardigd reageren als je geen extra verzekering wilt kopen, “op jullie eigen risico!”.
 
 De extra verzekering van Profijt is 49,95 EUR per zitplaats. Voor de drieënhalf zits bank die we wilden hebben moesten we 150 EUR betalen; halve personen worden niet geteld. Ik heb gevraagd of het uit maakt wanneer je er alleen maar met z’n tweeën op zit. Ook heb ik nog geprobeerd aan te geven dat we beiden fulltime werken en dat we er eigenlijk de helft van de tijd niet op zitten, dus we zijn 2x een half persoon en die worden niet geteld. Het maakte allemaal niet uit, “Het gaat per aangeven zit plaats”.

@@ -7,6 +7,9 @@ canonical: "https://zemelaar.blog/brievenbus-mysteries-en-ongewenste-deposities/
 categories: ["Geen categorie"]
 tags: []
 ---
+
+![Brievenbus Mysteries en Ongewenste Deposities](/uploads/brievenbus-mysteries-en-ongewenste-deposities/brievenbus-mysteries-en-ongewenste-deposities-beeld-01.jpeg)
+
 Toen ik vanmiddag mijn zoon van school ophaalde stond ik enigszins verbijsterd naar de schoolbrievenbus (op de foto hierboven) te staren. In het bijzonder het zelfontworpen bordje met de tekst,
 
 **Geen hondenpoep in deze brievenbus gooien!!!**

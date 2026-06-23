@@ -7,6 +7,9 @@ canonical: "https://zemelaar.blog/de-gouden-vloeistof-van-de-goden/"
 categories: ["Uncategorized"]
 tags: ["herinnering", "Petrichor", "regen", "zomer"]
 ---
+
+![De gouden vloeistof van de goden](/uploads/de-gouden-vloeistof-van-de-goden/de-gouden-vloeistof-van-de-goden-rain-in-sunny-day-at-forest.jpg)
+
 In een wolk hoog in de lucht condenseert een zuchtje waterdamp en begint zijn lange reis naar beneden waarin hij de perfecte, ons zo bekende, aerodynamisch vorm aanneemt. Een moment later spat de druppel op mijn met zweet bedekte arm uiteen; verlichting.
 
 Al snel volgen er meer. Spattend op het gras, de bladeren van de bomen en het asfalt maken ze allemaal een ander geluid. De kakofonie van een verkoelende zomerse regen bui.

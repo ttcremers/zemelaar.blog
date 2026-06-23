@@ -7,6 +7,9 @@ canonical: "https://zemelaar.blog/klets-kronieken/"
 categories: ["Geen categorie"]
 tags: ["Groningen", "herinnering", "Memoire"]
 ---
+
+![Klets Kronieken](/uploads/klets-kronieken/klets-kronieken-landschap-bij-uitspanning-vorenkamp-te-groningen-b8c5c9-1024.jpg)
+
 Als iemand mij vraagt waar ik geboren ben, dan antwoord ik Groningen. En dat is de waarheid. Men reageert meestal verbaasd, want in de Randstad voelt Groningen heel ver weg.
 
 Dan vertel ik meestal: “Onze familie woonde in een dorpje dicht aan het wad. Misschien wel het meest noordelijke deel van Nederland.”

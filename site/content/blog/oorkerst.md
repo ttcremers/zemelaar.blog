@@ -7,6 +7,9 @@ canonical: "https://zemelaar.blog/oorkerst/"
 categories: ["Geen categorie"]
 tags: ["herinnering", "kerst", "kerstvakantie", "synthesizer", "verhaaltje"]
 ---
+
+![Oorkerst](/uploads/site/beeld-15.jpg)
+
 Jaren geleden schreef ik een gedichtje nadat ik een man van ongeveer 55 jaar oud een hele avond over vroeger had horen leuteren. Ik ga niet het hele gedicht hier opschrijven, maar het eindigde met:
 
 „Ik kan de gedachte niet mijden, mensen die praten over het begin hebben het over het einde.”

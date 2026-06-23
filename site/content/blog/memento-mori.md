@@ -7,6 +7,9 @@ canonical: "https://zemelaar.blog/memento-mori/"
 categories: ["Geen categorie"]
 tags: []
 ---
+
+![Memento mori](/uploads/memento-mori/memento-mori-beeld-02.jpg)
+
 Er is een deel van de mensheid dat al jaren bezig is met de dood. We leven naast hen, we komen ze elke dag tegen. We praten met ze, werken met ze en mopperen soms op ze wanneer we ze in het verkeer tegenkomen of wanneer ze te traag zijn bij het afrekenen. Toch zal de Romeinse dichter Horace zich onder deze groep bevonden hebben toen hij schreef,
 
 *sapias, vina liques, et spatio brevi*

@@ -7,6 +7,9 @@ canonical: "https://zemelaar.blog/sap-van-gefermenteerde-druiven/"
 categories: ["Uncategorized"]
 tags: []
 ---
+
+![Sap van gefermenteerde druiven](/uploads/sap-van-gefermenteerde-druiven/sap-van-gefermenteerde-druiven-img-20220726-wa0004.jpg)
+
 Soms kom je dichter tot mensen op de meest onverwachte manieren. Dat maakten wij mee deze vakantie. Onze auto ging stuk en onze buurvrouw trad op als tolk en misschien ook wel als beschermengel.
 De auto moest uiteindelijk worden weggesleept en was pas na 4 dagen weer gerepareerd. Maar de buurvrouw ontfermde zich over ons. Ze regelde voor Alex een bezoek aan de dieren bij een boerderij van een vriend. Bij diezelfde wijnboer gingen wij een middagje wijn drinken. Let op, drinken niet proeven want “proeven” doe je in Frankrijk.
 

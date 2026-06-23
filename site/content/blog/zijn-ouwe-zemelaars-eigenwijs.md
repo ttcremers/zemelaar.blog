@@ -7,6 +7,9 @@ canonical: "https://zemelaar.blog/zijn-ouwe-zemelaars-eigenwijs/"
 categories: ["Geen categorie"]
 tags: []
 ---
+
+![Zijn ouwe zemelaars (eigen)wijs](/uploads/zijn-ouwe-zemelaars-eigenwijs/zijn-ouwe-zemelaars-eigenwijs-beeld-02.png)
+
 Okay, even over proportionele tijd en de illusie van wijsheid!
 
 De meeste mensen boven de veertig zullen het beamen: ze voelen zich niet wezenlijk anders dan toen ze 25 waren. De verpakking verkreukelt, maar de mentale inhoud is nog vers en ruim voor de verloopdatum.

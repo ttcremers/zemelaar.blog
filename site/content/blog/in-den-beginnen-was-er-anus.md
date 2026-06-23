@@ -7,6 +7,9 @@ canonical: "https://zemelaar.blog/in-den-beginnen-was-er-anus/"
 categories: ["Geen categorie"]
 tags: []
 ---
+
+![In den beginnen was er anus](/uploads/site/beeld-10.png)
+
 Het woord meme werd in 1976 bedacht door evolutiebioloog Richard Dawkins in zijn boek The Selfish Gene.
 
 Net zoals genen zich verspreiden via voortplanting, verspreiden memes zich via cultuur: ideeën, gedrag, beelden, taal.

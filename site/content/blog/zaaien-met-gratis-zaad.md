@@ -7,6 +7,9 @@ canonical: "https://zemelaar.blog/zaaien-met-gratis-zaad/"
 categories: ["Geen categorie"]
 tags: ["herinnering", "persoonlijk", "verhaaltje", "world wide web"]
 ---
+
+![Zaaien met gratis zaad](/uploads/zaaien-met-gratis-zaad/zaaien-met-gratis-zaad-stereotypical-90s-software-developer-i-love-how-this-guy-v0-i179nq0gwa3a1.jpg)
+
 In 1995 zag ik voor het eerst het world wide web bij een huisgenoot op zijn computer scherm. Regel voor regel werd een pagina - voornamelijk bestaande uit tekst - opgebouwd. De tekst was er in ongeveer 10 seconde, maar de 3 kleine plaatjes hadden zeker een minuut nodig in totaal. De pagina had een kleurenschema van Leen Bakker behang, maar ik was meteen verkocht.
 
 Al jaren daarvoor hoorde ik fluisteren over een "digitale snelweg", maar nu zag ik de toekomst zich voor mijn ogen ontvouwen. Ik moest en zou een lening afsluiten - waar ik geen geld voor had - tegen een misdadige Santander rente, om volwaardig onderdeel uit te kunnen maken van de dag van morgen.
