@@ -244,8 +244,9 @@ h1 em,
   display: block;
 }
 
-.brand-name {
+.home-intro strong {
   color: var(--zemelaar-green-dark);
+  font-weight: 600;
 }
 
 .home-kicker {
