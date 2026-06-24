@@ -5,4 +5,18 @@
       menu.open = false;
     }
   });
+
+  (function() {
+    var header = document.querySelector('header');
+    if (!header) return;
+    function onScroll() {
+      if (window.scrollY > 8) {
+        header.classList.add('header--scrolled');
+      } else {
+        header.classList.remove('header--scrolled');
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
 </script>

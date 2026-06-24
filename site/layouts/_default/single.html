@@ -1,0 +1,45 @@
+{{ define "main" }}
+{{ if eq .Type "blog" }}{{ if not .Params.menu }}
+<article class="post-article">
+  <header class="post-header">
+    <a href="{{ "/" | relURL }}" class="post-back">← De Stukken</a>
+    <h1>{{ .Title }}</h1>
+    <div class="post-meta">
+      {{- $months := slice "januari" "februari" "maart" "april" "mei" "juni" "juli" "augustus" "september" "oktober" "november" "december" -}}
+      {{- $month := index $months (sub (.Date.Month | int) 1) -}}
+      <time datetime='{{ .Date.Format "2006-01-02" }}'>
+        {{- printf "%d %s %d" .Date.Day $month .Date.Year -}}
+      </time>
+      {{ with .Params.tags }}
+        <div class="post-tile-tags post-header-tags">
+          {{ range . }}<span class="post-tile-tag">{{ . }}</span>{{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </header>
+
+  <div class="post-body">
+    {{ .Content }}
+  </div>
+
+  <footer class="post-footer">
+    <a href="{{ "/" | relURL }}" class="post-back-footer">← Terug naar De Stukken</a>
+  </footer>
+</article>
+{{ else }}
+<div class="page-article">
+  <h1>{{ .Title }}</h1>
+  <div class="page-body">
+    {{ .Content }}
+  </div>
+</div>
+{{ end }}
+{{ else }}
+<div class="page-article">
+  <h1>{{ .Title }}</h1>
+  <div class="page-body">
+    {{ .Content }}
+  </div>
+</div>
+{{ end }}
+{{ end }}

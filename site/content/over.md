@@ -1,6 +1,7 @@
 ---
 title: "Over"
 slug: "over"
+description: "Thomas Cremers schrijft korte stukken, herinneringen en observaties op Zemelaar — een plek voor kaf, korrels en losse gedachten."
 ---
 
 Ik ben Thomas Cremers.
