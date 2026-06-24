@@ -339,6 +339,29 @@ h1 em,
   grid-template-columns: 1fr;
 }
 
+.post-tile:first-child {
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(16rem, 44%) 1fr;
+  gap: 2rem;
+  min-height: 24rem;
+  padding: 1.25rem;
+}
+
+.post-tile:first-child .post-tile-body {
+  padding: 0.5rem 0.25rem;
+  justify-content: center;
+}
+
+.post-tile:first-child .post-tile-title {
+  margin-bottom: 1rem;
+  font-size: 1.85rem;
+}
+
+.post-tile:first-child .post-tile-blurb {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
 h2 {
   margin-top: 3rem;
   margin-bottom: 1rem;
@@ -475,6 +498,26 @@ hr {
     grid-template-columns: 1fr;
     min-height: 0;
     padding: 0;
+  }
+
+  .post-tile:first-child {
+    grid-template-columns: 1fr;
+    gap: 0;
+    min-height: 0;
+    padding: 0;
+  }
+
+  .post-tile:first-child .post-tile-body {
+    padding: 0.85rem 0.85rem 0.75rem;
+    justify-content: flex-start;
+  }
+
+  .post-tile:first-child .post-tile-title {
+    font-size: 1.35rem;
+  }
+
+  .post-tile:first-child .post-tile-blurb {
+    font-size: inherit;
   }
 
   .post-tile-image {
