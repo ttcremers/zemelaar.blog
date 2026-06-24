@@ -20,8 +20,24 @@
             {{ $blurb := .RawContent | replaceRE `!\[[^\]]*\]\([^)]+\)` "" | plainify | htmlUnescape | truncate 320 }}
             <article class="post-tile{{ if not $image }} post-tile--no-image{{ end }}">
               {{ if $image }}
+                {{ $imgPath := strings.TrimPrefix "/" $image }}
+                {{ $imgRes := resources.Get $imgPath }}
                 <a class="post-tile-image" href="{{ .RelPermalink }}" aria-label="Lees {{ .Title }}">
-                  <img src="{{ $image }}" alt="" width="800" height="600" fetchpriority="high">
+                  {{ if $imgRes }}
+                    {{ $hero900w  := $imgRes.Resize "900x  webp q85" }}
+                    {{ $hero1400w := $imgRes.Resize "1400x webp q85" }}
+                    {{ $heroFb    := $imgRes.Resize "900x  jpeg q82" }}
+                    <picture>
+                      <source type="image/webp"
+                        srcset="{{ $hero900w.RelPermalink }} 900w, {{ $hero1400w.RelPermalink }} 1400w"
+                        sizes="(max-width: 700px) 900px, 1400px">
+                      <img src="{{ $heroFb.RelPermalink }}"
+                        width="{{ $hero900w.Width }}" height="{{ $hero900w.Height }}"
+                        alt="" fetchpriority="high">
+                    </picture>
+                  {{ else }}
+                    <img src="{{ $image }}" alt="" width="800" height="600" fetchpriority="high">
+                  {{ end }}
                 </a>
               {{ end }}
               <div class="post-tile-body">
@@ -85,8 +101,24 @@
             {{ $blurb := .RawContent | replaceRE `!\[[^\]]*\]\([^)]+\)` "" | plainify | htmlUnescape | truncate 145 }}
             <article class="post-tile{{ if not $image }} post-tile--no-image{{ end }}">
               {{ if $image }}
+                {{ $imgPath := strings.TrimPrefix "/" $image }}
+                {{ $imgRes := resources.Get $imgPath }}
                 <a class="post-tile-image" href="{{ .RelPermalink }}" aria-label="Lees {{ .Title }}">
-                  <img src="{{ $image }}" alt="" width="800" height="600" loading="lazy">
+                  {{ if $imgRes }}
+                    {{ $tile600w := $imgRes.Resize "600x webp q85" }}
+                    {{ $tile900w := $imgRes.Resize "900x webp q85" }}
+                    {{ $tileFb   := $imgRes.Resize "600x jpeg q82" }}
+                    <picture>
+                      <source type="image/webp"
+                        srcset="{{ $tile600w.RelPermalink }} 600w, {{ $tile900w.RelPermalink }} 900w"
+                        sizes="(max-width: 700px) 600px, 900px">
+                      <img src="{{ $tileFb.RelPermalink }}"
+                        width="{{ $tile600w.Width }}" height="{{ $tile600w.Height }}"
+                        alt="" loading="lazy">
+                    </picture>
+                  {{ else }}
+                    <img src="{{ $image }}" alt="" width="800" height="600" loading="lazy">
+                  {{ end }}
                 </a>
               {{ end }}
               <div class="post-tile-body">

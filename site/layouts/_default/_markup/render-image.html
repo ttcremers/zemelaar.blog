@@ -1,1 +1,25 @@
-<img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" loading="lazy" width="800" height="600">
+{{- $src := .Destination -}}
+{{- $alt := .Text -}}
+{{- $path := strings.TrimPrefix "/" $src -}}
+{{- $img := resources.Get $path -}}
+{{- if $img -}}
+  {{- $w := $img.Width -}}
+  {{- $sm    := $img.Resize "480x  webp q85" -}}
+  {{- $md    := $img.Resize "900x  webp q85" -}}
+  {{- $lg    := cond (gt $w 1400) ($img.Resize "1400x webp q85") $md -}}
+  {{- $smFb  := $img.Resize "480x  jpeg q82" -}}
+  {{- $mdFb  := $img.Resize "900x  jpeg q82" -}}
+<picture>
+  <source type="image/webp"
+    srcset="{{ $sm.RelPermalink }} 480w, {{ $md.RelPermalink }} 900w{{ if gt $w 1400 }}, {{ $lg.RelPermalink }} 1400w{{ end }}"
+    sizes="(max-width: 600px) 480px, (max-width: 1100px) 900px, 1400px">
+  <img src="{{ $mdFb.RelPermalink }}"
+    srcset="{{ $smFb.RelPermalink }} 480w, {{ $mdFb.RelPermalink }} 900w"
+    sizes="(max-width: 600px) 480px, 900px"
+    alt="{{ $alt }}"
+    width="{{ $md.Width }}" height="{{ $md.Height }}"
+    loading="lazy">
+</picture>
+{{- else -}}
+<img src="{{ $src | safeURL }}" alt="{{ $alt }}" loading="lazy">
+{{- end -}}

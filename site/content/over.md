@@ -6,7 +6,7 @@ description: "Thomas Cremers schrijft korte stukken, herinneringen en observatie
 
 Ik ben Thomas Cremers.
 
-![Thomas Cremers](https://zemelaarblog.wordpress.com/wp-content/uploads/2022/08/img_20220726_205210.jpg)
+![Thomas Cremers](/thomas-cremers.jpg)
 
 Op Zemelaar verzamel ik korte stukken, herinneringen, observaties en zijpaden. Soms licht melancholisch. Soms kinderachtig. Soms allebei tegelijk.
 
