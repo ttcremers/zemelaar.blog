@@ -19,7 +19,7 @@
               {{ $image = replaceRE `^!\[[^\]]*\]\(([^)]+)\)$` "$1" (index . 0) }}
             {{ end }}
             {{ $blurb := .RawContent | replaceRE `!\[[^\]]*\]\([^)]+\)` "" | plainify | htmlUnescape | truncate 145 }}
-            <article class="post-tile">
+            <article class="post-tile{{ if not $image }} post-tile--no-image{{ end }}">
               {{ if $image }}
                 <a class="post-tile-image" href="{{ .RelPermalink }}" aria-label="Lees {{ .Title }}">
                   <img src="{{ $image }}" alt="">

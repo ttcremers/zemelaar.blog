@@ -335,6 +335,10 @@ h1 em,
   color: var(--zemelaar-text);
 }
 
+.post-tile--no-image {
+  grid-template-columns: 1fr;
+}
+
 h2 {
   margin-top: 3rem;
   margin-bottom: 1rem;
