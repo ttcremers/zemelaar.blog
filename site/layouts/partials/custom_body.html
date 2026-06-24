@@ -1,0 +1,8 @@
+<script>
+  document.addEventListener('click', function(e) {
+    var menu = document.querySelector('.site-menu');
+    if (menu && menu.open && !menu.contains(e.target)) {
+      menu.open = false;
+    }
+  });
+</script>
