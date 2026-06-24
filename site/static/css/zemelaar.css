@@ -279,6 +279,14 @@ h1 em,
   justify-content: center;
 }
 
+.signup-title {
+  margin: 0 0 0.5rem;
+  color: var(--zemelaar-green-dark);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
 .signup-tile .post-tile-kicker {
   color: var(--zemelaar-green-dark);
 }
