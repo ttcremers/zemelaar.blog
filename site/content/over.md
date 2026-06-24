@@ -6,7 +6,7 @@ description: "Thomas Cremers schrijft korte stukken, herinneringen en observatie
 
 Ik ben Thomas Cremers.
 
-![Thomas Cremers](/thomas-cremers.jpg)
+<img src="/thomas-cremers.jpg" alt="Thomas Cremers" loading="lazy" style="width:100%;height:auto;display:block;border-radius:4px;">
 
 Op Zemelaar verzamel ik korte stukken, herinneringen, observaties en zijpaden. Soms licht melancholisch. Soms kinderachtig. Soms allebei tegelijk.
 

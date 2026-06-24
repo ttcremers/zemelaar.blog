@@ -7,6 +7,9 @@ enableRobotsTXT = true
 
 disableKinds = ["taxonomy", "term", "section"]
 
+[markup.goldmark.renderer]
+  unsafe = true
+
 [permalinks]
   blog = '/:slug/'
 
