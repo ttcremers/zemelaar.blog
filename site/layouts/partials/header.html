@@ -1,16 +1,16 @@
 <div class="site-header">
-  <details class="site-menu">
-    <summary aria-label="Menu">
-      <span class="menu-lines" aria-hidden="true"></span>
-    </summary>
-    <nav aria-label="Hoofdnavigatie">
-      {{ range .Site.Menus.main }}
-        <a href="{{ .URL }}">{{ .Name }}</a>
-      {{ end }}
-    </nav>
-  </details>
+  <div class="site-brand-group">
+    <details class="site-menu">
+      <summary aria-label="Menu">
+        <span class="menu-lines" aria-hidden="true"></span>
+      </summary>
+      <nav aria-label="Hoofdnavigatie">
+        {{ range .Site.Menus.main }}
+          <a href="{{ .URL }}">{{ .Name }}</a>
+        {{ end }}
+      </nav>
+    </details>
 
-  <a href="{{ "" | relURL }}" class="site-logo" aria-label="Zemelaar home">
-    <img src="https://zemelaarblog.wordpress.com/wp-content/uploads/2022/08/zemelaar-logo-dark-1.png" alt="Zemelaar">
-  </a>
+    <a href="{{ "" | relURL }}" class="site-wordmark" aria-label="Zemelaar home">Zemelaar</a>
+  </div>
 </div>
