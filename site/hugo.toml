@@ -10,6 +10,7 @@ enableRobotsTXT = true
 
 [params]
   description = 'Op het kaf na, de buitenste laag van de graankorrel'
+  hideMadeWithLine = true
 
 [[menu.main]]
   name = 'Stukken'
