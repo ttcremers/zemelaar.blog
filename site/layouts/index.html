@@ -33,6 +33,16 @@
             </article>
           {{ end }}
           <h2 class="post-grid-label">De Stukken</h2>
+          <article class="post-tile signup-tile">
+            <div class="post-tile-body">
+              <p class="post-tile-kicker">Nieuwe stukken in je inbox</p>
+              <p class="signup-desc">Alleen een berichtje bij een nieuw stuk. Niets meer.</p>
+              <form class="signup-form" action="#" method="post">
+                <input class="signup-input" type="email" name="EMAIL" placeholder="jouw@email.nl" required>
+                <button class="signup-button" type="submit">Inschrijven</button>
+              </form>
+            </div>
+          </article>
           {{ range after 1 $posts.ByDate.Reverse }}
             {{ $image := "" }}
             {{ with findRE `!\[[^\]]*\]\([^)]+\)` .RawContent 1 }}
