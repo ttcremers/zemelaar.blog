@@ -58,7 +58,7 @@ footer {
 
 .site-header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
   width: min(72rem, calc(100vw - 2.5rem));
@@ -419,6 +419,12 @@ hr {
   margin: 2.5rem 0;
   border: 0;
   border-top: 1px solid var(--zemelaar-rule);
+}
+
+@media (max-width: 480px) {
+  .site-wordmark small {
+    display: none;
+  }
 }
 
 @media (max-width: 720px) {
