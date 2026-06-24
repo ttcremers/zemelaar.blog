@@ -38,13 +38,43 @@
               <h3 class="signup-title">Tijdelijk Nieuw</h3>
               <p class="post-tile-kicker">Nieuwe stukken in je inbox</p>
               <p class="signup-desc">Alleen een berichtje bij een nieuw stuk. Niets meer.</p>
-              <form id="sib-form" class="signup-form" action="https://eeccfaa8.sibforms.com/v2/serve/MUIFANwU6T02jOA0qlnxf0wXHeqqK9gocFMxPbpOgsdaMaKxStTW1DePyjHbJrSLQRko9pyEXx-1EViZwS0yx01JeFDGQGRJO0bK32mIdY7vObY02mKbvgXmK9UvaUAB4fYwtSI5rNDU9pISF7xYHIvTTsEgwcu0lMNIeOCqoQWugVyQnZNOOtMb7fPCHOoRG_GxxWGNjxeeJADRUg==" method="post" data-type="subscription" novalidate>
+              <form id="zemelaar-signup" class="signup-form">
                 <input class="signup-input" type="email" name="EMAIL" placeholder="jouw@email.nl" required>
-                <input type="text" name="email_address_check" value="" style="display:none">
-                <input type="hidden" name="locale" value="nl">
+                <input type="text" name="email_address_check" value="" style="display:none" aria-hidden="true">
                 <button class="signup-button" type="submit">Inschrijven</button>
+                <p class="signup-feedback" aria-live="polite"></p>
               </form>
-              <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+              <script>
+              (function() {
+                var form = document.getElementById('zemelaar-signup');
+                if (!form) return;
+                form.addEventListener('submit', function(e) {
+                  e.preventDefault();
+                  var email = form.querySelector('[name="EMAIL"]').value;
+                  var honeypot = form.querySelector('[name="email_address_check"]').value;
+                  var feedback = form.querySelector('.signup-feedback');
+                  if (honeypot) return;
+                  var btn = form.querySelector('button');
+                  btn.disabled = true;
+                  btn.textContent = '…';
+                  var data = new FormData();
+                  data.append('EMAIL', email);
+                  data.append('email_address_check', '');
+                  data.append('locale', 'nl');
+                  fetch('https://eeccfaa8.sibforms.com/v2/serve/MUIFANwU6T02jOA0qlnxf0wXHeqqK9gocFMxPbpOgsdaMaKxStTW1DePyjHbJrSLQRko9pyEXx-1EViZwS0yx01JeFDGQGRJO0bK32mIdY7vObY02mKbvgXmK9UvaUAB4fYwtSI5rNDU9pISF7xYHIvTTsEgwcu0lMNIeOCqoQWugVyQnZNOOtMb7fPCHOoRG_GxxWGNjxeeJADRUg==', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: data
+                  }).then(function() {
+                    form.innerHTML = '<p class="signup-feedback signup-feedback--ok">Ingeschreven! Je hoort van ons bij een nieuw stuk.</p>';
+                  }).catch(function() {
+                    feedback.textContent = 'Er ging iets mis. Probeer het opnieuw.';
+                    btn.disabled = false;
+                    btn.textContent = 'Inschrijven';
+                  });
+                });
+              })();
+              </script>
             </div>
           </article>
           {{ range after 1 $posts.ByDate.Reverse }}

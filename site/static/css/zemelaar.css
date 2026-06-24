@@ -341,6 +341,17 @@ h1 em,
   background: var(--zemelaar-green);
 }
 
+.signup-feedback {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  color: var(--zemelaar-muted);
+}
+
+.signup-feedback--ok {
+  color: var(--zemelaar-green-dark);
+  font-size: 1rem;
+}
+
 .post-section {
   margin-top: 5rem;
 }
