@@ -472,8 +472,18 @@ hr {
   }
 
   .post-tile {
-    grid-template-columns: 7rem 1fr;
-    min-height: 10rem;
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding: 0;
+  }
+
+  .post-tile-image {
+    aspect-ratio: 3 / 2;
+    width: 100%;
+  }
+
+  .post-tile-body {
+    padding: 0.85rem 0.85rem 0.75rem;
   }
 
   blockquote {
