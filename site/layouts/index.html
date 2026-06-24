@@ -10,8 +10,7 @@
 
     {{ $posts := where .Site.RegularPages "Section" "blog" }}
     {{ if $posts }}
-      <section class="post-section" aria-labelledby="post-section-title">
-        <h2 id="post-section-title">Stukken</h2>
+      <section class="post-section">
         <div class="post-grid">
           {{ range first 1 $posts.ByDate.Reverse }}
             {{ $image := "" }}

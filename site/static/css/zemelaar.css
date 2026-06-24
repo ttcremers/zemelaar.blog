@@ -395,7 +395,7 @@ h1 em,
   grid-column: 1 / -1;
   grid-template-columns: minmax(16rem, 44%) 1fr;
   min-height: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 4rem;
 }
 
 .post-tile:first-child:hover {
