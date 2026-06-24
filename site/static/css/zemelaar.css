@@ -45,7 +45,9 @@ header {
   z-index: 20;
   margin-bottom: 0;
   padding: 1.35rem 1.25rem 0.85rem;
-  background: linear-gradient(to bottom, var(--zemelaar-bg) 78%, rgba(241, 235, 220, 0));
+  background: rgba(232, 229, 216, 0.965);
+  box-shadow: 0 1px rgba(204, 216, 211, 0.75), 0 2px 8px rgba(24, 24, 22, 0.06);
+  backdrop-filter: blur(6px);
 }
 
 footer {
