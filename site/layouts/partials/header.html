@@ -18,6 +18,12 @@
   </div>
 
   <a href="{{ "" | relURL }}" class="site-logo" aria-label="Zemelaar home">
-    <img src="/uploads/site/zemelaar-logo-dark-1.png" alt="Zemelaar">
+    {{- $logoSrc := resources.Get "uploads/site/zemelaar-logo-dark-1.png" -}}
+    {{- if $logoSrc -}}
+      {{- $logo := $logoSrc.Resize "200x200 webp q90" -}}
+      <img src="{{ $logo.RelPermalink }}" width="{{ $logo.Width }}" height="{{ $logo.Height }}" alt="Zemelaar">
+    {{- else -}}
+      <img src="/uploads/site/zemelaar-logo-dark-1.png" alt="Zemelaar">
+    {{- end -}}
   </a>
 </div>
