@@ -1,4 +1,37 @@
 {{ define "main" }}
+  <style>
+    .index-title {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75em;
+      margin-top: 0;
+      margin-bottom: 2rem;
+    }
+
+    .index-title span {
+      color: var(--zemelaar-green-dark);
+      font-style: italic;
+    }
+
+    .index-title small {
+      color: var(--zemelaar-text);
+      font-size: 0.62em;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    @media (max-width: 720px) {
+      .index-title {
+        display: block;
+      }
+
+      .index-title small {
+        display: block;
+        margin-top: 0.2rem;
+      }
+    }
+  </style>
+
   <div class="home-index">
     <p class="home-kicker">Op het kaf na, de buitenste laag van de graankorrel</p>
     <h1 class="index-title"><span>Zemelaar.</span><small>Korte stukken.</small></h1>
