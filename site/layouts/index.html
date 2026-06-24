@@ -26,8 +26,14 @@
                 </a>
               {{ end }}
               <div class="post-tile-body">
+                <p class="post-tile-kicker">— Nieuwste stuk —</p>
                 <h3 class="post-tile-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
                 <p class="post-tile-blurb">{{ $blurb }}</p>
+                {{ with .Params.tags }}
+                  <div class="post-tile-tags">
+                    {{ range . }}<span class="post-tile-tag">{{ . }}</span>{{ end }}
+                  </div>
+                {{ end }}
                 <a class="post-tile-button" href="{{ .RelPermalink }}">Lees meer</a>
               </div>
             </article>
@@ -47,6 +53,11 @@
               <div class="post-tile-body">
                 <h3 class="post-tile-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
                 <p class="post-tile-blurb">{{ $blurb }}</p>
+                {{ with .Params.tags }}
+                  <div class="post-tile-tags">
+                    {{ range . }}<span class="post-tile-tag">{{ . }}</span>{{ end }}
+                  </div>
+                {{ end }}
                 <a class="post-tile-button" href="{{ .RelPermalink }}">Lees meer</a>
               </div>
             </article>
