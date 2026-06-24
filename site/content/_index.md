@@ -2,4 +2,4 @@
 title: "Zemelaar"
 ---
 
-Zemelaar is een verzameling korte stukken, herinneringen, observaties en zijpaden.
+<span class="brand-name">Zemelaar</span> is een verzameling korte stukken, herinneringen, observaties en zijpaden.

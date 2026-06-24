@@ -37,6 +37,7 @@
               </div>
             </article>
           {{ end }}
+          <h2 class="post-grid-label">De Stukken</h2>
           {{ range after 1 $posts.ByDate.Reverse }}
             {{ $image := "" }}
             {{ with findRE `!\[[^\]]*\]\([^)]+\)` .RawContent 1 }}

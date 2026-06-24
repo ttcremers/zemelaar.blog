@@ -244,6 +244,10 @@ h1 em,
   display: block;
 }
 
+.brand-name {
+  color: var(--zemelaar-green-dark);
+}
+
 .home-kicker {
   margin-bottom: 1.4rem;
   color: var(--zemelaar-muted);
@@ -380,6 +384,18 @@ h1 em,
   color: var(--zemelaar-green);
 }
 
+.post-grid-label {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--zemelaar-text);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--zemelaar-text);
+}
+
 .post-tile--no-image {
   grid-template-columns: 1fr;
 }
@@ -395,7 +411,7 @@ h1 em,
   grid-column: 1 / -1;
   grid-template-columns: minmax(16rem, 44%) 1fr;
   min-height: 0;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .post-tile:first-child:hover {
