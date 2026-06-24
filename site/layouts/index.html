@@ -13,7 +13,26 @@
       <section class="post-section" aria-labelledby="post-section-title">
         <h2 id="post-section-title">Stukken</h2>
         <div class="post-grid">
-          {{ range $posts.ByDate.Reverse }}
+          {{ range first 1 $posts.ByDate.Reverse }}
+            {{ $image := "" }}
+            {{ with findRE `!\[[^\]]*\]\([^)]+\)` .RawContent 1 }}
+              {{ $image = replaceRE `^!\[[^\]]*\]\(([^)]+)\)$` "$1" (index . 0) }}
+            {{ end }}
+            {{ $blurb := .RawContent | replaceRE `!\[[^\]]*\]\([^)]+\)` "" | plainify | htmlUnescape | truncate 320 }}
+            <article class="post-tile{{ if not $image }} post-tile--no-image{{ end }}">
+              {{ if $image }}
+                <a class="post-tile-image" href="{{ .RelPermalink }}" aria-label="Lees {{ .Title }}">
+                  <img src="{{ $image }}" alt="">
+                </a>
+              {{ end }}
+              <div class="post-tile-body">
+                <h3 class="post-tile-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                <p class="post-tile-blurb">{{ $blurb }}</p>
+                <a class="post-tile-button" href="{{ .RelPermalink }}">Lees meer</a>
+              </div>
+            </article>
+          {{ end }}
+          {{ range after 1 $posts.ByDate.Reverse }}
             {{ $image := "" }}
             {{ with findRE `!\[[^\]]*\]\([^)]+\)` .RawContent 1 }}
               {{ $image = replaceRE `^!\[[^\]]*\]\(([^)]+)\)$` "$1" (index . 0) }}

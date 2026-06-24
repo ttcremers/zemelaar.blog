@@ -353,13 +353,39 @@ h1 em,
 }
 
 .post-tile:first-child .post-tile-title {
-  margin-bottom: 1rem;
-  font-size: 1.85rem;
+  margin-bottom: 1.4rem;
+  font-size: 2.4rem;
+}
+
+.post-tile:first-child .post-tile-title a {
+  color: var(--zemelaar-green-dark);
+}
+
+.post-tile:first-child .post-tile-title a:hover,
+.post-tile:first-child .post-tile-title a:focus {
+  color: var(--zemelaar-green);
 }
 
 .post-tile:first-child .post-tile-blurb {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.post-tile:first-child .post-tile-button {
+  padding: 0.8rem 1.75rem;
+  background: var(--zemelaar-green-dark);
+  border-color: var(--zemelaar-green-dark);
+  color: var(--zemelaar-paper);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.post-tile:first-child .post-tile-button:hover,
+.post-tile:first-child .post-tile-button:focus {
+  background: var(--zemelaar-green);
+  border-color: var(--zemelaar-green);
+  color: var(--zemelaar-text);
 }
 
 h2 {
