@@ -10,6 +10,9 @@
   }
 
   .site-wordmark {
+    display: flex;
+    align-items: baseline;
+    gap: 0.65em;
     color: var(--zemelaar-green-dark);
     font-family: "Literata", Georgia, serif;
     font-size: 1.45rem;
@@ -17,6 +20,13 @@
     font-weight: 500;
     line-height: 1;
     text-decoration: none;
+  }
+
+  .site-wordmark small {
+    color: var(--zemelaar-text);
+    font-size: 0.62em;
+    font-style: normal;
+    font-weight: 500;
   }
 
   .site-wordmark:hover,
@@ -38,7 +48,10 @@
       </nav>
     </details>
 
-    <a href="{{ "" | relURL }}" class="site-wordmark" aria-label="Zemelaar home">Zemelaar.</a>
+    <a href="{{ "" | relURL }}" class="site-wordmark" aria-label="Zemelaar home">
+      <span>Zemelaar.</span>
+      <small>Korte stukken.</small>
+    </a>
   </div>
 
   <a href="{{ "" | relURL }}" class="site-logo" aria-label="Zemelaar home">
