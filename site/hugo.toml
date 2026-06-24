@@ -5,6 +5,8 @@ theme = 'hugo-bearblog'
 
 enableRobotsTXT = true
 
+disableKinds = ["taxonomy", "term", "section"]
+
 [permalinks]
   blog = '/:slug/'
 
