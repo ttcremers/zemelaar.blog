@@ -803,14 +803,14 @@ hr {
   font-weight: 600;
 }
 
-.post-body.post-body--nodropcap > p:first-of-type:not(:has(img))::first-letter,
-.post-body.post-body--nodropcap > p:first-of-type:has(img) + p::first-letter {
-  float: none;
-  font-size: inherit;
-  line-height: inherit;
-  margin: 0;
-  color: inherit;
-  font-weight: inherit;
+.post-body.post-body--nodropcap > p::first-letter,
+.post-body.post-body--nodropcap > figure + p::first-letter {
+  float: none !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  margin: 0 !important;
+  color: inherit !important;
+  font-weight: inherit !important;
 }
 
 .post-body::after {

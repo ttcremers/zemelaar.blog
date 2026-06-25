@@ -1,7 +1,7 @@
 ---
 title: "De wolven"
 date: 2026-06-25
-description: "Over angst, armoede, mijn moeder en waarom ik in bomen klim."
+description: "Er wordt mij vaak verteld dat ik te veel nadenk. Dat ik te veel analyseer. Dat ik te veel bezig ben met zekerheid."
 dedication: "Ter nagedachtenis aan mijn overleden moeder"
 image: /uploads/de-wolven/de-wolven-orchidee.jpg
 nodropcap: true
