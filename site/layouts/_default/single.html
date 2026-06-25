@@ -23,6 +23,30 @@
     {{ .Content }}
   </div>
 
+  <aside class="post-signup">
+    <p class="post-signup-heading">Het volgende stuk in je mailbox?</p>
+    <form class="signup-form post-signup-form" action="https://buttondown.com/api/emails/embed-subscribe/zemelaar" method="post">
+      <input class="signup-input" type="email" name="email" placeholder="jouw@email.nl" required>
+      <button class="signup-button" type="submit">Inschrijven</button>
+      <p class="signup-feedback" aria-live="polite"></p>
+    </form>
+    <script>
+    (function(){
+      var form=document.querySelector('.post-signup-form');
+      if(!form)return;
+      form.addEventListener('submit',function(e){
+        e.preventDefault();
+        var fb=form.querySelector('.signup-feedback');
+        var btn=form.querySelector('.signup-button');
+        btn.disabled=true;
+        fetch(form.action,{method:'POST',body:new FormData(form),mode:'no-cors'})
+          .then(function(){fb.textContent='Je bent ingeschreven. Bedankt!';fb.classList.add('signup-feedback--ok');form.reset();})
+          .catch(function(){fb.textContent='Er ging iets mis. Probeer het nog eens.';btn.disabled=false;});
+      });
+    })();
+    </script>
+  </aside>
+
   <footer class="post-footer">
     <a href="{{ "/" | relURL }}" class="post-back-footer">← Terug naar De Stukken</a>
   </footer>

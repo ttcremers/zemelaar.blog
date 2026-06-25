@@ -772,8 +772,22 @@ hr {
   margin-bottom: 0;
 }
 
-.post-footer {
+.post-signup {
   margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--zemelaar-rule);
+}
+
+.post-signup-heading {
+  margin: 0 0 1.25rem;
+  color: var(--zemelaar-green-dark);
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.post-footer {
+  margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--zemelaar-rule);
 }
