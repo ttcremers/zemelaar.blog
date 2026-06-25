@@ -692,6 +692,28 @@ hr {
   border-top: 1px solid var(--zemelaar-rule);
 }
 
+/* Over page */
+.page-body .over-section-title {
+  color: var(--zemelaar-green-dark);
+}
+
+.page-body .over-list {
+  list-style: disc;
+  padding-left: 1.4rem;
+  margin-top: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.page-body .over-list li {
+  border-bottom: none;
+  border-top: none;
+  padding: 0.25rem 0;
+}
+
+.page-body .over-list li + li {
+  margin-top: 0.15rem;
+}
+
 /* Post article (single.html) */
 .post-back {
   display: inline-block;
