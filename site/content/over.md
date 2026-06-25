@@ -12,7 +12,7 @@ Ik doe vrijwilligerswerk en ben daar trotser op dan zou moeten.
 
 Ik hoor bij de geheime groep die weet waarom de vogeltjes 's ochtends fluiten.
 
-Ik doe me voor als werelds, maar ik heb er eigenlijk angst voor.
+Ik doe me voor als werelds, maar ik heb er eigenlijk bang voor.
 
 Ik identificeer me als sexier dan ik eigenlijk ben.
 
