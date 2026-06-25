@@ -19,7 +19,7 @@
     {{ with .Params.dedication }}<p class="post-dedication">{{ . }}</p>{{ end }}
   </header>
 
-  <div class="post-body">
+  <div class="post-body{{ if .Params.nodropcap }} post-body--nodropcap{{ end }}">
     {{ .Content }}
   </div>
 

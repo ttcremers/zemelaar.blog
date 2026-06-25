@@ -4,6 +4,7 @@ date: 2026-06-25
 draft: true
 description: "Over angst, armoede, mijn moeder en waarom ik in bomen klim."
 dedication: "Ter nagedachtenis aan mijn overleden moeder"
+nodropcap: true
 ---
 
 Er wordt mij vaak verteld dat ik te veel nadenk.

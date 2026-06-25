@@ -803,6 +803,16 @@ hr {
   font-weight: 600;
 }
 
+.post-body.post-body--nodropcap > p:first-of-type:not(:has(img))::first-letter,
+.post-body.post-body--nodropcap > p:first-of-type:has(img) + p::first-letter {
+  float: none;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+  color: inherit;
+  font-weight: inherit;
+}
+
 .post-body::after {
   content: "· · ·";
   display: block;
