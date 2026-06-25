@@ -74,13 +74,9 @@
                   btn.textContent = '…';
                   var data = new FormData();
                   data.append('email', email);
-                  fetch(form.action, { method: 'POST', body: data })
-                    .then(function(r) {
-                      if (r.ok) {
-                        form.innerHTML = '<p class="signup-feedback signup-feedback--ok">Ingeschreven! Je hoort van ons bij een nieuw stuk.</p>';
-                      } else {
-                        throw new Error();
-                      }
+                  fetch(form.action, { method: 'POST', mode: 'no-cors', body: data })
+                    .then(function() {
+                      form.innerHTML = '<p class="signup-feedback signup-feedback--ok">Ingeschreven! Je hoort van ons bij een nieuw stuk.</p>';
                     })
                     .catch(function() {
                       feedback.textContent = 'Er ging iets mis. Probeer het opnieuw.';
