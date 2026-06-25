@@ -4,13 +4,17 @@ slug: "over"
 description: "Thomas Cremers schrijft korte stukken, herinneringen en observaties op Zemelaar — een plek voor kaf, korrels en losse gedachten."
 ---
 
-Ik ben Thomas Cremers.
+Ik heb een hekel aan de kleur blauw. Over het algemeen ga ik in het groen gekleed.
 
 <img src="/thomas-cremers.jpg" alt="Thomas Cremers" loading="lazy" style="width:100%;height:auto;display:block;border-radius:4px;">
 
-Op Zemelaar verzamel ik korte stukken, herinneringen, observaties en zijpaden. Soms licht melancholisch. Soms kinderachtig. Soms allebei tegelijk.
+Ik doe vrijwilligerswerk en ben daar trotser op dan zou moeten.
 
-De naam zegt eigenlijk al genoeg: dit is een plek voor kaf, korrels, losse gedachten en zinnen die bleven hangen.
+Ik hoor bij de geheime groep die weet waarom de vogeltjes 's ochtends fluiten.
+
+Ik doe me voor als werelds, maar ik heb er eigenlijk angst voor.
+
+Ik identificeer me als sexier dan ik eigenlijk ben.
 
 Ik schrijf omdat sommige dingen pas bestaan wanneer ze zijn opgeschreven.
 
