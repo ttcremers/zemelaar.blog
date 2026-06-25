@@ -701,17 +701,21 @@ hr {
   list-style: disc;
   padding-left: 1.4rem;
   margin-top: 1rem;
-  margin-bottom: 1.75rem;
+  margin-bottom: 3.75rem;
 }
 
 .page-body .over-list li {
   border-bottom: none;
   border-top: none;
-  padding: 0.25rem 0;
+  padding: 0.05rem 0;
 }
 
 .page-body .over-list li + li {
-  margin-top: 0.15rem;
+  margin-top: 0;
+}
+
+.page-body form ~ p {
+  margin-top: 3.75rem;
 }
 
 /* Post article (single.html) */
