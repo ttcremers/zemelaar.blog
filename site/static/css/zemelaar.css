@@ -719,6 +719,13 @@ hr {
 }
 
 /* Post article (single.html) */
+.post-dedication {
+  margin: 0.75rem 0 0;
+  color: var(--zemelaar-muted);
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
 .post-back {
   display: inline-block;
   margin-bottom: 2rem;
