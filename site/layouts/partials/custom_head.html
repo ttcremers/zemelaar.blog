@@ -62,7 +62,7 @@
 {{- if $image -}}
   {{- $ld = merge $ld (dict "image" $image) -}}
 {{- end -}}
-<script type="application/ld+json">{{ $ld | jsonify (dict "indent" "  ") | safeHTML }}</script>
+{{ printf "<script type=\"application/ld+json\">%s</script>" ($ld | jsonify) | safeHTML }}
 {{- end }}
 
 <!-- JSON-LD: WebSite for homepage -->
@@ -77,5 +77,5 @@
   "inLanguage" "nl-NL"
   "author" $author
 -}}
-<script type="application/ld+json">{{ $ld | jsonify (dict "indent" "  ") | safeHTML }}</script>
+{{ printf "<script type=\"application/ld+json\">%s</script>" ($ld | jsonify) | safeHTML }}
 {{- end }}
